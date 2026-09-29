@@ -23,13 +23,6 @@
 </helmet>
 <div style="width: 390px; background: #eef0f1; font-family: Arial, sans-serif; color: #34393e;">
 
-  <!-- Component-library label -->
-  <div style="padding: 22px 18px 18px;">
-    <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 10.5px; letter-spacing: 1.3px; text-transform: uppercase; color: #cd0e2d; margin-bottom: 5px;">PDP Variant — Mobile</div>
-    <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 17px; letter-spacing: 0.2px; color: #131518; text-transform: uppercase; margin-bottom: 6px;">Alternate PDP — Diagram-Driven Assembly</div>
-    <div style="font-size: 12.5px; line-height: 1.5; color: #545454;">Diagram in place of a photo gallery, itemized parts list in place of a single buy box.</div>
-  </div>
-
   <div style="background: #f1f2f2;">
 
     <!-- Header -->
@@ -67,13 +60,12 @@
 
     <!-- Interactive diagram (replaces gallery) -->
     <div style="padding: 12px 18px 0;">
-      <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 14px; height: 240px; position: relative; overflow: hidden;">
+      <div role="img" aria-label="Interactive 3D exploded diagram of the drainage system, showing the toilet, shower, grey and black tanks, vent stack, and connecting pipework" style="background: #fff url(&quot;/_blob/17a6e57c8a86e1e6fdc98fa2f3a5cfe3&quot;) center / contain no-repeat; border: 1px solid #e4e5e6; border-radius: 14px; height: 240px; position: relative; overflow: hidden;">
         <span style="position: absolute; top: 12px; left: 12px; background: #fff; border: 1px solid #e4e5e6; color: #545454; font-weight: 600; font-size: 11px; padding: 4px 10px; border-radius: 999px; z-index: 2;">Interactive 3D diagram</span>
         <span style="position: absolute; bottom: 12px; right: 12px; display: inline-flex; align-items: center; gap: 5px; background: #07263f; color: #fff; font-family: 'United Sans', Arial, sans-serif; font-weight: 800; font-size: 11px; padding: 7px 12px; border-radius: 999px; z-index: 2;">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M9 21H3v-6"></path><path d="M21 3l-7 7"></path><path d="M3 21l7-7"></path></svg>
           Open full diagram
         </span>
-        <img src="/_blob/17a6e57c8a86e1e6fdc98fa2f3a5cfe3" alt="Interactive 3D exploded diagram of the drainage system, showing the toilet, shower, grey and black tanks, vent stack, and connecting pipework" style="width: 100%; height: 100%; object-fit: contain; display: block;">
       </div>
       <div style="display: flex; align-items: flex-start; gap: 7px; font-size: 12px; color: #545454; padding: 9px 2px 0;">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8a8f94" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><path d="M9 18l6-6-6-6"></path></svg>
@@ -239,7 +231,7 @@
   </div>
 </div>
 </x-dc>
-<script data-dc-script data-props='{"$preview":{"width":390,"height":2300}}'>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":2160}}'>
 class Component extends DCLogic {
   renderVals() {
     return {};

@@ -20,6 +20,14 @@
   a.card .name { font-weight: 700; font-size: 14px; color: #131518; }
   a.card .desc { font-size: 12.5px; color: #8a8f94; margin-top: 4px; }
   .note { font-size: 12.5px; color: #8a8f94; margin-top: -6px; margin-bottom: 22px; }
+
+  /* Instructions block — plain text, intentionally not styled like the clickable cards below */
+  .instructions { background: transparent; padding: 0 0 8px; margin-bottom: 8px; }
+  .instructions h2 { margin-top: 0; }
+  .instructions ol { margin: 0; padding: 0 0 0 20px; }
+  .instructions li { font-size: 14px; line-height: 1.6; color: #34393e; margin-bottom: 10px; }
+  .instructions li:last-child { margin-bottom: 0; }
+  .instructions .fine { font-size: 12.5px; color: #8a8f94; margin: 14px 0 0; }
 </style>
 </head>
 <body>
@@ -32,6 +40,18 @@
 </header>
 <main>
 
+  <div class="instructions">
+    <h2>How to click through this prototype</h2>
+    <ol>
+      <li>Start on Home. From there, use the real navigation — Shop by Category or Find Your Fit — to move through the site, just as a shopper would.</li>
+      <li>Every page is fully linked: Home, Shop by Category, Find Your Fit, and a Product Detail page all connect to one another through their actual buttons, cards, and nav links.</li>
+      <li>Clicking Add Vehicle (or Find Your Fit) opens the vehicle quiz. Completing it — or already having a vehicle selected — is what determines whether a part shows as compatible, needs verification, or doesn't fit.</li>
+      <li>There's no fixed order to follow. Click around like a real shopper would, and use your browser's back button to return to a previous screen.</li>
+      <li>The desktop flow below is the same experience as the mobile flow — just built for a 390px screen.</li>
+    </ol>
+    <p class="fine">Note: this is a click-through concept for RFP evaluation, not a live storefront. Some buttons and links are placeholders.</p>
+  </div>
+
   <h2>Main shopping flow — desktop</h2>
   <p class="note">These four link to each other, so you can click straight through: Home → Shop by category / Find your fit → a product.</p>
   <div class="grid">
@@ -41,32 +61,12 @@
     <a class="card" href="PDP.dc.html"><div class="name">Product Detail</div><div class="desc">Buy box, compatibility, Ask about this part</div></a>
   </div>
 
-  <h2>PDP Variants</h2>
-  <p class="note">Alternate PDP layout for systems/kits that don't have product photography — a diagram in place of a gallery, and a multi-line parts list in place of a single buy box.</p>
-  <div class="grid">
-    <a class="card" href="PDP-AltDiagram.dc.html"><div class="name">Alternate PDP — Diagram-Driven Assembly</div><div class="desc">Interactive diagram + itemized parts list, no product photo</div></a>
-    <a class="card" href="PDP-AltDiagram-Mobile.dc.html"><div class="name">Alternate PDP — Diagram-Driven Assembly — Mobile</div><div class="desc">Mobile version of the diagram-driven assembly PDP</div></a>
-  </div>
-
   <h2>Main shopping flow — mobile</h2>
   <div class="grid">
     <a class="card" href="HomeMobile.dc.html"><div class="name">Home</div><div class="desc">Mobile — with functional hamburger menu</div></a>
     <a class="card" href="FitmentMobile.dc.html"><div class="name">Find Your Fit</div><div class="desc">Mobile fitment &amp; vehicle selection</div></a>
     <a class="card" href="CategoryMobile.dc.html"><div class="name">Shop by Category</div><div class="desc">Mobile category grid</div></a>
     <a class="card" href="PDPMobile.dc.html"><div class="name">Product Detail</div><div class="desc">Mobile product page</div></a>
-  </div>
-
-  <h2>Interactive modal demos</h2>
-  <p class="note">Both modal flows in one place — click straight through the RV quiz and the product assistant chat without needing to trigger them from a page.</p>
-  <div class="grid">
-    <a class="card" href="InteractiveDemos.dc.html"><div class="name">Interactive Modal Demos</div><div class="desc">Add / Manage Your RV &amp; Product Assistant — live, click-through</div></a>
-  </div>
-
-  <h2>Fitment Status — component states</h2>
-  <p class="note">All 3 fitment states (Compatible, Verify First, Not Compatible) for the two component treatments used across Category, PDP and Home.</p>
-  <div class="grid">
-    <a class="card" href="FitmentBadge-States.dc.html"><div class="name">Fitment Badge — All 3 States</div><div class="desc">Compact product-card badge strip</div></a>
-    <a class="card" href="FitmentCard-States.dc.html"><div class="name">Fitment Confirmation Card — All 3 States</div><div class="desc">PDP buy-box confirmation card</div></a>
   </div>
 
 </main>
