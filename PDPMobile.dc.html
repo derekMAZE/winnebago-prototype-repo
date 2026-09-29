@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Product detail — Mobile</title>
   <script src="./support.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,10 +26,10 @@
 
   <!-- Header -->
   <div style="background: #fff; border-bottom: 1px solid #e4e5e6; padding: 12px 18px; display: flex; align-items: center; justify-content: space-between;">
-    <a href="#" aria-label="Menu" style="width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;">
+    <a onClick="{{toggleMenu}}" aria-label="Menu" style="width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer;">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#07263f" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
     </a>
-    <a href="Home.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 3px;">
+    <a href="HomeMobile.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 3px;">
       <img src="/_blob/f26af393a80570616b306429084af306" alt="Winnebago" style="height: 20px; width: auto; display: block;">
       <div style="font-family: 'Lato', sans-serif; font-weight: 600; font-size: 8px; letter-spacing: 2px; color: #cd0e2d; text-transform: uppercase;">Parts &amp; Accessories</div>
     </a>
@@ -53,7 +54,7 @@
 
   <!-- Breadcrumb -->
   <div style="padding: 12px 18px 0; font-size: 11.5px; color: #8a8f94;">
-    <a href="Home.dc.html" style="color: #8a8f94;">Home</a> › <a href="#" style="color: #8a8f94;">Water Systems</a> › <span style="color: #34393e; font-weight: 700;">12V Fresh Water Pump</span>
+    <a href="HomeMobile.dc.html" style="color: #8a8f94;">Home</a> › <a href="#" style="color: #8a8f94;">Water Systems</a> › <span style="color: #34393e; font-weight: 700;">12V Fresh Water Pump</span>
   </div>
 
   <!-- Gallery -->
@@ -155,7 +156,7 @@
       <div style="border-top: 1px solid #e4e5e6; margin-top: 16px; padding-top: 14px; display: flex; flex-direction: column; gap: 6px;">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#8a8f94" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
         <div style="font-size: 12.5px; color: #545454; line-height: 1.45;">Not sure it's right? Ask our support assistant about fitment, install, or shipping.</div>
-        <a href="#" style="font-family: 'United Sans', Arial, sans-serif; font-weight: 800; font-size: 11.5px; letter-spacing: 0.5px; text-transform: uppercase; color: #07263f; text-decoration: underline; text-underline-offset: 2px;">Ask a question</a>
+        <a onClick="{{openAssistant}}" style="font-family: 'United Sans', Arial, sans-serif; font-weight: 800; font-size: 11.5px; letter-spacing: 0.5px; text-transform: uppercase; color: #07263f; text-decoration: underline; text-underline-offset: 2px; cursor: pointer;">Ask a question</a>
       </div>
     </div>
 
@@ -195,7 +196,7 @@
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
 
       <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
-        <a href="PDP.dc.html" style="display: block; height: 108px; background: url(&quot;/_blob/ce97e2891bdcfddde497579a08aae5f7&quot;) center / contain no-repeat"></a>
+        <a href="PDPMobile.dc.html" style="display: block; height: 108px; background: url(&quot;/_blob/ce97e2891bdcfddde497579a08aae5f7&quot;) center / contain no-repeat"></a>
         <div style="padding: 11px; display: flex; flex-direction: column; gap: 5px; flex-grow: 1;">
           <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 12.5px; line-height: 1.2;">Water Pump Strainer</div>
           <div style="font-family: 'Lato', sans-serif; font-weight: 800; font-size: 15px; color: #07263f;">$18.95</div>
@@ -204,7 +205,7 @@
       </div>
 
       <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
-        <a href="PDP.dc.html" style="display: block; height: 108px; background: url('/_blob/2c787dcc2d679738ff1ff5b78f2e3833') center/cover;"></a>
+        <a href="PDPMobile.dc.html" style="display: block; height: 108px; background: url('/_blob/2c787dcc2d679738ff1ff5b78f2e3833') center/cover;"></a>
         <div style="padding: 11px; display: flex; flex-direction: column; gap: 5px; flex-grow: 1;">
           <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 12.5px; line-height: 1.2;">Silent Check Valve Kit</div>
           <div style="font-family: 'Lato', sans-serif; font-weight: 800; font-size: 15px; color: #07263f;">$24.50</div>
@@ -213,7 +214,7 @@
       </div>
 
       <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
-        <a href="PDP.dc.html" style="display: block; height: 108px; background: url('/_blob/05d681e9e6a1ef1ee40a9ddb743d35dc') center/cover;"></a>
+        <a href="PDPMobile.dc.html" style="display: block; height: 108px; background: url('/_blob/05d681e9e6a1ef1ee40a9ddb743d35dc') center/cover;"></a>
         <div style="padding: 11px; display: flex; flex-direction: column; gap: 5px; flex-grow: 1;">
           <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 12.5px; line-height: 1.2;">Inline Water Filter</div>
           <div style="font-family: 'Lato', sans-serif; font-weight: 800; font-size: 15px; color: #07263f;">$32.00</div>
@@ -222,7 +223,7 @@
       </div>
 
       <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
-        <a href="PDP.dc.html" style="display: block; height: 108px; background: url(&quot;/_blob/3574a0b034eeafd70a0768fb91076425&quot;) center / contain no-repeat"></a>
+        <a href="PDPMobile.dc.html" style="display: block; height: 108px; background: url(&quot;/_blob/3574a0b034eeafd70a0768fb91076425&quot;) center / contain no-repeat"></a>
         <div style="padding: 11px; display: flex; flex-direction: column; gap: 5px; flex-grow: 1;">
           <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 12.5px; line-height: 1.2;">Pump Silencing Mount</div>
           <div style="font-family: 'Lato', sans-serif; font-weight: 800; font-size: 15px; color: #07263f;">$14.25</div>
@@ -241,7 +242,7 @@
       <input type="email" placeholder="Email address" style="flex: 1; padding: 11px 14px; border-radius: 999px; border: 1px solid #d5d7d9; background: #fff; color: #131518; font-size: 13px;">
       <a href="#" style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #fff; background: #000; border-radius: 999px; padding: 11px 18px; white-space: nowrap; display: flex">Sign up</a>
     </div>
-    <div style="display: flex; gap: 20px; margin-top: 18px; font-size: 14px; flex-wrap: wrap;"><a href="Category.dc.html" style="color: #545454;">Shop by category</a><a href="Fitment.dc.html" style="color: #545454;">Find your fit</a><a href="#" style="color: #545454;">Support</a></div>
+    <div style="display: flex; gap: 20px; margin-top: 18px; font-size: 14px; flex-wrap: wrap;"><a href="CategoryMobile.dc.html" style="color: #545454;">Shop by category</a><a href="FitmentMobile.dc.html" style="color: #545454;">Find your fit</a><a href="#" style="color: #545454;">Support</a></div>
     <div style="border-top: 1px solid #e4e5e6; margin-top: 20px; padding-top: 16px; font-size: 12px; color: #8a8f94;">Concept for Winnebago Industries RFP evaluation. The Maze Group.</div>
   </div>
 
@@ -641,6 +642,59 @@
       </div>
     </div>
   </sc-if>
+
+  <!-- Mobile menu drawer -->
+  <sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}">
+      <div onClick="{{closeMenu}}" style="position: fixed; inset: 0; background: rgba(20,22,24,0.45); z-index: 90;"></div>
+      <div style="position: fixed; top: 0; left: 0; bottom: 0; width: 84%; max-width: 340px; background: #fff; z-index: 91; box-shadow: 16px 0 40px rgba(2,10,20,0.22); display: flex; flex-direction: column;">
+
+        <!-- Header -->
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 20px 22px; border-bottom: 3px solid #07263f; flex-shrink: 0;">
+          <img src="/_blob/f26af393a80570616b306429084af306" alt="Winnebago" style="height: 20px; width: auto; display: block;">
+          <a onClick="{{closeMenu}}" aria-label="Close menu" style="width: 34px; height: 34px; border-radius: 999px; border: 1px solid #d5d7d9; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; cursor: pointer;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#23262a" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </a>
+        </div>
+
+        <!-- Body -->
+        <div style="flex-grow: 1; overflow-y: auto; padding: 22px; display: flex; flex-direction: column; gap: 28px;">
+
+          <!-- Primary nav -->
+          <div style="display: flex; flex-direction: column;">
+            <a href="CategoryMobile.dc.html" onClick="{{closeMenu}}" style="display: flex; align-items: center; justify-content: space-between; padding: 15px 4px; border-bottom: 1px solid #e4e5e6; font-family: 'United Sans', Arial, sans-serif; font-weight: 800; font-size: 16px; color: #131518;">Shop by category
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a8f94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
+            </a>
+            <a href="FitmentMobile.dc.html" onClick="{{closeMenu}}" style="display: flex; align-items: center; justify-content: space-between; padding: 15px 4px; border-bottom: 1px solid #e4e5e6; font-family: 'United Sans', Arial, sans-serif; font-weight: 800; font-size: 16px; color: #131518;">Find your fit
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a8f94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
+            </a>
+            <a href="#" onClick="{{closeMenu}}" style="display: flex; align-items: center; justify-content: space-between; padding: 15px 4px; border-bottom: 1px solid #e4e5e6; font-family: 'United Sans', Arial, sans-serif; font-weight: 800; font-size: 16px; color: #131518;">Accessories
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a8f94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
+            </a>
+            <a href="#" onClick="{{closeMenu}}" style="display: flex; align-items: center; justify-content: space-between; padding: 15px 4px; font-family: 'United Sans', Arial, sans-serif; font-weight: 800; font-size: 16px; color: #131518;">Support
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a8f94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
+            </a>
+          </div>
+
+          <!-- Account -->
+          <div>
+            <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; color: #8a8f94; margin-bottom: 10px;">Your account</div>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <button onClick="{{closeMenu}}" style="width: 100%; font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #fff; background: #000; border: none; border-radius: 999px; padding: 13px; cursor: pointer;" type="button">Sign in</button>
+              <button onClick="{{closeMenu}}" style="width: 100%; font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #000; background: #fff; border: 2px solid #000; border-radius: 999px; padding: 11px; cursor: pointer;" type="button">Create account</button>
+            </div>
+          </div>
+
+          <!-- Support links -->
+          <div style="display: flex; flex-direction: column; gap: 14px; font-size: 14px;">
+            <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; color: #8a8f94; margin-bottom: -4px;">Support</div>
+            <a href="#" onClick="{{closeMenu}}" style="color: #545454;">Order status</a>
+            <a href="#" onClick="{{closeMenu}}" style="color: #545454;">Guest order lookup</a>
+            <a href="#" onClick="{{closeMenu}}" style="color: #545454;">Dealer locator</a>
+            <a href="#" onClick="{{closeMenu}}" style="color: #545454;">Shipping &amp; returns</a>
+          </div>
+        </div>
+      </div>
+  </sc-if>
 </div>
 </x-dc>
 <script data-dc-script data-props='{"$preview":{"width":390,"height":2350}}'>
@@ -683,6 +737,9 @@ class Component extends DCLogic {
       accountOpen: this.state.accountOpen ?? false,
       toggleAccount: () => this.setState({ accountOpen: !(this.state.accountOpen ?? false) }),
       closeAccount: () => this.setState({ accountOpen: false }),
+      menuOpen: this.state.menuOpen ?? false,
+      toggleMenu: () => this.setState({ menuOpen: !(this.state.menuOpen ?? false) }),
+      closeMenu: () => this.setState({ menuOpen: false }),
       openPanel: () => this.setState({ panelOpen: true, quizStep: 'entry' }),
       closePanel: () => this.setState({ panelOpen: false }),
       openAssistant: () => this.setState({ assistantOpen: true, assistantAnswer: null }),
