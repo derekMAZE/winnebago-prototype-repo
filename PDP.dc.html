@@ -19,11 +19,15 @@
     * { box-sizing: border-box; }
     a { text-decoration: none; }
   
-    /* Hover / active affordance for clickable elements: a visible color/opacity shift plus a lift */
+    /* Hover / active affordance for clickable elements: a visible color/opacity shift plus a lift.
+       Card-style containers (product cards via a stretched overlay link, category tiles as a
+       single linked card) get the fuller treatment; plain text nav/footer links just get an
+       opacity dim; nothing without a real handler or href gets a hover state at all. */
     button:not(:disabled),
     a[onClick],
     div[onClick]:not([style*="inset: 0"]),
-    div[style*="border-radius: 12px"][style*="overflow: hidden"]:has(> a[href$=".dc.html"]) {
+    div[style*="border-radius: 12px"][style*="overflow: hidden"]:has(> a[href$=".dc.html"]),
+    a[style*="border-radius: 12px"][style*="overflow: hidden"] {
       transition: filter 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
     }
     button:not(:disabled):hover,
@@ -40,13 +44,14 @@
       transform: translateY(0);
       box-shadow: none;
     }
-    div[style*="border-radius: 12px"][style*="overflow: hidden"]:has(> a[href$=".dc.html"]):hover {
+    div[style*="border-radius: 12px"][style*="overflow: hidden"]:has(> a[href$=".dc.html"]):hover,
+    a[style*="border-radius: 12px"][style*="overflow: hidden"]:hover {
       filter: brightness(0.93);
       box-shadow: 0 10px 24px rgba(2,10,20,0.22);
       transform: translateY(-2px);
       border-color: #07263f !important;
     }
-    a[href$=".dc.html"]:hover {
+    a[href$=".dc.html"]:not([style*="position: absolute"]):not([style*="overflow: hidden"]):hover {
       opacity: 0.7;
     }
   </style>
@@ -63,7 +68,10 @@
       <nav style="display: flex; gap: 26px; font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 13px; letter-spacing: 1.2px; text-transform: uppercase; color: #34393e; flex-grow: 1;">
         <a href="Category.dc.html" style="color: #cd0e2d; display: flex; align-items: center">Shop by category</a>
         <a href="Fitment.dc.html" style="color: #34393e; display: flex; align-items: center">Find your fit</a>
-        <a href="#" aria-label="Support" title="Support" style="color: #34393e; display: inline-flex; align-items: center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34393e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></a>
+        <a onClick="{{openAssistant}}" aria-label="Ask about parts" title="Ask about parts" style="display: inline-flex; align-items: center; gap: 8px; height: 32px; border-radius: 999px; border: none; background: #cd0e2d; padding: 0 14px; cursor: pointer; flex-shrink: 0; color: #fff; box-shadow: 0 3px 8px rgba(205,14,45,0.35);">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          <span style="color: #fff;">Chat</span>
+        </a>
       </nav>
       <div style="display: flex; align-items: center; gap: 14px;">
         <div style="position: relative;">
@@ -95,9 +103,6 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#545454" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.5" y2="16.5"></line></svg>
           <span style="font-size: 14px; color: #8a8f94;">Search parts&nbsp;</span>
         </div>
-        <a onClick="{{openAssistant}}" aria-label="Ask about parts" title="Ask about parts" style="width: 44px; height: 44px; border-radius: 8px; border: 1px solid #c2c6c9; background: #fff; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0;">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#07263f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-        </a>
         <a href="#" aria-label="Cart" style="position: relative; width: 44px; height: 44px; border-radius: 8px; background: #07263f; display: inline-flex; align-items: center; justify-content: center;">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.6"></circle><circle cx="18" cy="20" r="1.6"></circle><path d="M2 3h3l2.5 12.5A2 2 0 0 0 9.5 17H18a2 2 0 0 0 2-1.6L22 7H6"></path></svg>
           <span style="position: absolute; top: -6px; right: -6px; background: #cd0e2d; color: #fff; font-family: 'Lato', sans-serif; font-weight: 700; font-size: 11px; width: 20px; height: 20px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center;">2</span>
@@ -262,8 +267,8 @@
     <p style="margin: 0 0 22px; font-size: 15px; color: #545454;">Only parts that fit your 2026 View 24D are shown. Incompatible parts are never recommended.</p>
     <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px;">
 
-      <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
-        <a href="PDP.dc.html" style="display: block; height: 150px; background: url(&quot;/_blob/ce97e2891bdcfddde497579a08aae5f7&quot;) center / contain no-repeat"></a>
+      <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; position: relative;"><a href="PDP.dc.html" aria-label="View product" style="position: absolute; inset: 0; z-index: 1;"></a>
+        <div style="display: block; height: 150px; background: url(&quot;/_blob/ce97e2891bdcfddde497579a08aae5f7&quot;) center / contain no-repeat"></div>
         <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; flex-grow: 1;">
           <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 15px; line-height: 1.2;">Water Pump Strainer</div>
           <div style="font-family: 'Lato', sans-serif; font-weight: 800; font-size: 18px; color: #07263f;">$18.95</div>
@@ -271,8 +276,8 @@
         </div>
       </div>
 
-      <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
-        <a href="PDP.dc.html" style="display: block; height: 150px; background: url('/_blob/2c787dcc2d679738ff1ff5b78f2e3833') center/cover;"></a>
+      <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; position: relative;"><a href="PDP.dc.html" aria-label="View product" style="position: absolute; inset: 0; z-index: 1;"></a>
+        <div style="display: block; height: 150px; background: url('/_blob/2c787dcc2d679738ff1ff5b78f2e3833') center/cover;"></div>
         <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; flex-grow: 1;">
           <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 15px; line-height: 1.2;">Silent Check Valve Kit</div>
           <div style="font-family: 'Lato', sans-serif; font-weight: 800; font-size: 18px; color: #07263f;">$24.50</div>
@@ -280,8 +285,8 @@
         </div>
       </div>
 
-      <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
-        <a href="PDP.dc.html" style="display: block; height: 150px; background: url('/_blob/05d681e9e6a1ef1ee40a9ddb743d35dc') center/cover;"></a>
+      <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; position: relative;"><a href="PDP.dc.html" aria-label="View product" style="position: absolute; inset: 0; z-index: 1;"></a>
+        <div style="display: block; height: 150px; background: url('/_blob/05d681e9e6a1ef1ee40a9ddb743d35dc') center/cover;"></div>
         <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; flex-grow: 1;">
           <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 15px; line-height: 1.2;">Inline Water Filter</div>
           <div style="font-family: 'Lato', sans-serif; font-weight: 800; font-size: 18px; color: #07263f;">$32.00</div>
@@ -289,8 +294,8 @@
         </div>
       </div>
 
-      <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
-        <a href="PDP.dc.html" style="display: block; height: 150px; background: url(&quot;/_blob/3574a0b034eeafd70a0768fb91076425&quot;) center / contain no-repeat"></a>
+      <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; position: relative;"><a href="PDP.dc.html" aria-label="View product" style="position: absolute; inset: 0; z-index: 1;"></a>
+        <div style="display: block; height: 150px; background: url(&quot;/_blob/3574a0b034eeafd70a0768fb91076425&quot;) center / contain no-repeat"></div>
         <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; flex-grow: 1;">
           <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 15px; line-height: 1.2;">Pump Silencing Mount</div>
           <div style="font-family: 'Lato', sans-serif; font-weight: 800; font-size: 18px; color: #07263f;">$14.25</div>

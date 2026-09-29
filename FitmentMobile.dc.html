@@ -21,11 +21,15 @@
     * { box-sizing: border-box; }
     a { text-decoration: none; }
   
-    /* Hover / active affordance for clickable elements: a visible color/opacity shift plus a lift */
+    /* Hover / active affordance for clickable elements: a visible color/opacity shift plus a lift.
+       Card-style containers (product cards via a stretched overlay link, category tiles as a
+       single linked card) get the fuller treatment; plain text nav/footer links just get an
+       opacity dim; nothing without a real handler or href gets a hover state at all. */
     button:not(:disabled),
     a[onClick],
     div[onClick]:not([style*="inset: 0"]),
-    div[style*="border-radius: 12px"][style*="overflow: hidden"]:has(> a[href$=".dc.html"]) {
+    div[style*="border-radius: 12px"][style*="overflow: hidden"]:has(> a[href$=".dc.html"]),
+    a[style*="border-radius: 12px"][style*="overflow: hidden"] {
       transition: filter 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
     }
     button:not(:disabled):hover,
@@ -42,13 +46,14 @@
       transform: translateY(0);
       box-shadow: none;
     }
-    div[style*="border-radius: 12px"][style*="overflow: hidden"]:has(> a[href$=".dc.html"]):hover {
+    div[style*="border-radius: 12px"][style*="overflow: hidden"]:has(> a[href$=".dc.html"]):hover,
+    a[style*="border-radius: 12px"][style*="overflow: hidden"]:hover {
       filter: brightness(0.93);
       box-shadow: 0 10px 24px rgba(2,10,20,0.22);
       transform: translateY(-2px);
       border-color: #07263f !important;
     }
-    a[href$=".dc.html"]:hover {
+    a[href$=".dc.html"]:not([style*="position: absolute"]):not([style*="overflow: hidden"]):hover {
       opacity: 0.7;
     }
   </style>

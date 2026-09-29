@@ -20,11 +20,15 @@
     a { text-decoration: none; }
     @keyframes vehicleSwapIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
   
-    /* Hover / active affordance for clickable elements: a visible color/opacity shift plus a lift */
+    /* Hover / active affordance for clickable elements: a visible color/opacity shift plus a lift.
+       Card-style containers (product cards via a stretched overlay link, category tiles as a
+       single linked card) get the fuller treatment; plain text nav/footer links just get an
+       opacity dim; nothing without a real handler or href gets a hover state at all. */
     button:not(:disabled),
     a[onClick],
     div[onClick]:not([style*="inset: 0"]),
-    div[style*="border-radius: 12px"][style*="overflow: hidden"]:has(> a[href$=".dc.html"]) {
+    div[style*="border-radius: 12px"][style*="overflow: hidden"]:has(> a[href$=".dc.html"]),
+    a[style*="border-radius: 12px"][style*="overflow: hidden"] {
       transition: filter 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
     }
     button:not(:disabled):hover,
@@ -41,13 +45,14 @@
       transform: translateY(0);
       box-shadow: none;
     }
-    div[style*="border-radius: 12px"][style*="overflow: hidden"]:has(> a[href$=".dc.html"]):hover {
+    div[style*="border-radius: 12px"][style*="overflow: hidden"]:has(> a[href$=".dc.html"]):hover,
+    a[style*="border-radius: 12px"][style*="overflow: hidden"]:hover {
       filter: brightness(0.93);
       box-shadow: 0 10px 24px rgba(2,10,20,0.22);
       transform: translateY(-2px);
       border-color: #07263f !important;
     }
-    a[href$=".dc.html"]:hover {
+    a[href$=".dc.html"]:not([style*="position: absolute"]):not([style*="overflow: hidden"]):hover {
       opacity: 0.7;
     }
     a[aria-label="Ask about parts"]:hover {
@@ -198,12 +203,12 @@
       <a href="Category.dc.html" style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #cd0e2d;">View all parts ›</a>
     </div>
     <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;">
-      <a href="Category.dc.html" style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; color: #34393e; display: flex; flex-direction: column; transition: none;"><span style="height: 132px; background: url(&quot;/_blob/4c0f8e8cac16325226b7fa0a3221af62&quot;) center / cover no-repeat"></span><div style="padding: 18px 20px;"><div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 700; font-size: 17px;">Appliances &amp; HVAC</div><div style="font-size: 14px; color: #545454; margin-top: 4px;">Fridges, furnaces, A/C</div></div></a>
-      <a href="Category.dc.html" style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; color: #34393e; display: flex; flex-direction: column; transition: none;"><span style="height: 132px; background: url(&quot;/_blob/0c196c3225af48aa69747b83a89a4194&quot;) center / cover no-repeat"></span><div style="padding: 18px 20px;"><div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 700; font-size: 17px;">Exterior &amp; Body</div><div style="font-size: 14px; color: #545454; margin-top: 4px;">Panels, awnings, seals</div></div></a>
-      <a href="Category.dc.html" style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; color: #34393e; display: flex; flex-direction: column; transition: none;"><span style="height: 132px; background: url(&quot;/_blob/71338aea8718bb909ce06b66a260f255&quot;) center / cover no-repeat"></span><div style="padding: 18px 20px;"><div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 700; font-size: 17px;">Electrical &amp; Power</div><div style="font-size: 14px; color: #545454; margin-top: 4px;">Batteries, inverters, wiring</div></div></a>
-      <a href="Category.dc.html" style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; color: #34393e; display: flex; flex-direction: column; transition: none;"><span style="height: 132px; background: url(&quot;/_blob/020c6f9799f74d865d733b1281ce28bb&quot;) center / cover no-repeat"></span><div style="padding: 18px 20px;"><div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 700; font-size: 17px;">Plumbing &amp; Water</div><div style="font-size: 14px; color: #545454; margin-top: 4px;">Pumps, tanks, fixtures</div></div></a>
-      <a href="Category.dc.html" style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; color: #34393e; display: flex; flex-direction: column; transition: none;"><span style="height: 132px; background: url(&quot;/_blob/38fd7b2f8592a7d889eb5fd88d1477d0&quot;) center / cover no-repeat"></span><div style="padding: 18px 20px;"><div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 700; font-size: 17px;">Interior &amp; Living</div><div style="font-size: 14px; color: #545454; margin-top: 4px;">Seating, shades, decor</div></div></a>
-      <a href="Category.dc.html" style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; color: #34393e; display: flex; flex-direction: column; transition: none;"><span style="height: 132px; background: url(&quot;/_blob/0e2076b3ce1aecfaaf92e770a1296708&quot;) center / cover no-repeat"></span><div style="padding: 18px 20px;"><div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 700; font-size: 17px;">Maintenance &amp; Care</div><div style="font-size: 14px; color: #545454; margin-top: 4px;">Filters, fluids, cleaners</div></div></a>
+      <a href="Category.dc.html" style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; color: #34393e; display: flex; flex-direction: column;"><span style="height: 132px; background: url(&quot;/_blob/4c0f8e8cac16325226b7fa0a3221af62&quot;) center / cover no-repeat"></span><div style="padding: 18px 20px;"><div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 700; font-size: 17px;">Appliances &amp; HVAC</div><div style="font-size: 14px; color: #545454; margin-top: 4px;">Fridges, furnaces, A/C</div></div></a>
+      <a href="Category.dc.html" style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; color: #34393e; display: flex; flex-direction: column;"><span style="height: 132px; background: url(&quot;/_blob/0c196c3225af48aa69747b83a89a4194&quot;) center / cover no-repeat"></span><div style="padding: 18px 20px;"><div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 700; font-size: 17px;">Exterior &amp; Body</div><div style="font-size: 14px; color: #545454; margin-top: 4px;">Panels, awnings, seals</div></div></a>
+      <a href="Category.dc.html" style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; color: #34393e; display: flex; flex-direction: column;"><span style="height: 132px; background: url(&quot;/_blob/71338aea8718bb909ce06b66a260f255&quot;) center / cover no-repeat"></span><div style="padding: 18px 20px;"><div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 700; font-size: 17px;">Electrical &amp; Power</div><div style="font-size: 14px; color: #545454; margin-top: 4px;">Batteries, inverters, wiring</div></div></a>
+      <a href="Category.dc.html" style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; color: #34393e; display: flex; flex-direction: column;"><span style="height: 132px; background: url(&quot;/_blob/020c6f9799f74d865d733b1281ce28bb&quot;) center / cover no-repeat"></span><div style="padding: 18px 20px;"><div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 700; font-size: 17px;">Plumbing &amp; Water</div><div style="font-size: 14px; color: #545454; margin-top: 4px;">Pumps, tanks, fixtures</div></div></a>
+      <a href="Category.dc.html" style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; color: #34393e; display: flex; flex-direction: column;"><span style="height: 132px; background: url(&quot;/_blob/38fd7b2f8592a7d889eb5fd88d1477d0&quot;) center / cover no-repeat"></span><div style="padding: 18px 20px;"><div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 700; font-size: 17px;">Interior &amp; Living</div><div style="font-size: 14px; color: #545454; margin-top: 4px;">Seating, shades, decor</div></div></a>
+      <a href="Category.dc.html" style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; color: #34393e; display: flex; flex-direction: column;"><span style="height: 132px; background: url(&quot;/_blob/0e2076b3ce1aecfaaf92e770a1296708&quot;) center / cover no-repeat"></span><div style="padding: 18px 20px;"><div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 700; font-size: 17px;">Maintenance &amp; Care</div><div style="font-size: 14px; color: #545454; margin-top: 4px;">Filters, fluids, cleaners</div></div></a>
     </div>
   </div>
 
@@ -215,8 +220,8 @@
     </div>
     <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px;">
 
-      <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
-        <a href="PDP.dc.html" style="display: block; height: 150px; background: url(&quot;/_blob/8f2a51d47aff8ea090f15405aa714e5f&quot;) center / contain no-repeat"></a>
+      <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; position: relative;"><a href="PDP.dc.html" aria-label="View product" style="position: absolute; inset: 0; z-index: 1;"></a>
+        <div style="display: block; height: 150px; background: url(&quot;/_blob/8f2a51d47aff8ea090f15405aa714e5f&quot;) center / contain no-repeat"></div>
         <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; flex-grow: 1;">
           <div style="font-size: 12px; color: #545454; font-weight: 600;">Water Systems</div>
           <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 15px; line-height: 1.2;">SHURflo 12V Water Pump</div>
@@ -225,8 +230,8 @@
         <div style="display: flex; align-items: center; gap: 7px; padding: 10px 16px; background: #EAF6EE; border-top: 1px solid #B9E0C3;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#145C3D" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 12.5px; color: #145C3D;">Fits your 2026 Winnebago View 24D</span></div>
       </div>
 
-      <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
-        <a href="PDP.dc.html" style="display: block; height: 150px; background: url(&quot;/_blob/4ff5950d7dc4285298a9f54681ef8f32&quot;) center / contain no-repeat"></a>
+      <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; position: relative;"><a href="PDP.dc.html" aria-label="View product" style="position: absolute; inset: 0; z-index: 1;"></a>
+        <div style="display: block; height: 150px; background: url(&quot;/_blob/4ff5950d7dc4285298a9f54681ef8f32&quot;) center / contain no-repeat"></div>
         <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; flex-grow: 1;">
           <div style="font-size: 12px; color: #545454; font-weight: 600;">Appliances &amp; HVAC</div>
           <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 15px; line-height: 1.2;">Dometic Refrigerator Vent</div>
@@ -235,8 +240,8 @@
         <div style="display: flex; align-items: center; gap: 7px; padding: 10px 16px; background: #EAF6EE; border-top: 1px solid #B9E0C3;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#145C3D" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 12.5px; color: #145C3D;">Fits your 2026 Winnebago View 24D</span></div>
       </div>
 
-      <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
-        <a href="PDP.dc.html" style="display: block; height: 150px; background: url('/_blob/59c10ffbde4f3eeb4ffd5df7192b33f5') center/cover;"></a>
+      <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; position: relative;"><a href="PDP.dc.html" aria-label="View product" style="position: absolute; inset: 0; z-index: 1;"></a>
+        <div style="display: block; height: 150px; background: url('/_blob/59c10ffbde4f3eeb4ffd5df7192b33f5') center/cover;"></div>
         <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; flex-grow: 1;">
           <div style="font-size: 12px; color: #545454; font-weight: 600;">Electrical &amp; Power</div>
           <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 15px; line-height: 1.2;">Lithionics 12V Lithium Battery</div>
@@ -245,8 +250,8 @@
         <div style="display: flex; align-items: center; gap: 7px; padding: 10px 16px; background: #FBF1E4; border-top: 1px solid #E9C88B;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B5751A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3.5 2"></path></svg><span style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 12.5px; color: #8a5a14;">Verify fit before purchase</span></div>
       </div>
 
-      <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
-        <a href="PDP.dc.html" style="display: block; height: 150px; background: url(&quot;/_blob/01f94985c19a1ec9ffe733b0d5fdaa7d&quot;) center / contain no-repeat"></a>
+      <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; position: relative;"><a href="PDP.dc.html" aria-label="View product" style="position: absolute; inset: 0; z-index: 1;"></a>
+        <div style="display: block; height: 150px; background: url(&quot;/_blob/01f94985c19a1ec9ffe733b0d5fdaa7d&quot;) center / contain no-repeat"></div>
         <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; flex-grow: 1;">
           <div style="font-size: 12px; color: #545454; font-weight: 600;">Maintenance &amp; Care</div>
           <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 15px; line-height: 1.2;">Dicor Lap Sealant Kit</div>
