@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Winnebago Motorhomes — DTC Parts &amp; Accessories Prototype</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #23262a; background: #f1f2f2; }
+  header { background: #fff; border-bottom: 1px solid #e4e5e6; padding: 28px 40px; display: flex; align-items: center; gap: 18px; }
+  header img { height: 30px; width: auto; display: block; }
+  header .tag { font-weight: 700; font-size: 11px; letter-spacing: 2px; color: #cd0e2d; text-transform: uppercase; }
+  header h1 { font-size: 18px; margin: 0; color: #07263f; }
+  main { max-width: 1100px; margin: 0 auto; padding: 32px 40px 80px; }
+  h2 { font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: #545454; border-bottom: 1px solid #e4e5e6; padding-bottom: 10px; margin: 40px 0 18px; }
+  h2:first-of-type { margin-top: 0; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+  a.card { display: block; background: #fff; border: 1px solid #e4e5e6; border-radius: 10px; padding: 16px 18px; text-decoration: none; color: #23262a; transition: border-color .15s, box-shadow .15s; }
+  a.card:hover { border-color: #07263f; box-shadow: 0 4px 14px rgba(2,10,20,0.08); }
+  a.card .name { font-weight: 700; font-size: 14px; color: #131518; }
+  a.card .desc { font-size: 12.5px; color: #8a8f94; margin-top: 4px; }
+  .note { font-size: 12.5px; color: #8a8f94; margin-top: -6px; margin-bottom: 22px; }
+</style>
+</head>
+<body>
+<header>
+  <img src="/_blob/f26af393a80570616b306429084af306" alt="Winnebago">
+  <div>
+    <div class="tag">Parts &amp; Accessories</div>
+    <h1>DTC Concept Prototype — click through any screen below</h1>
+  </div>
+</header>
+<main>
+
+  <h2>Main shopping flow — desktop</h2>
+  <p class="note">These four link to each other, so you can click straight through: Home → Shop by category / Find your fit → a product.</p>
+  <div class="grid">
+    <a class="card" href="Home.dc.html"><div class="name">Home</div><div class="desc">Front door — identify your RV, shop by category</div></a>
+    <a class="card" href="Fitment.dc.html"><div class="name">Find Your Fit</div><div class="desc">Fitment &amp; vehicle selection</div></a>
+    <a class="card" href="Category.dc.html"><div class="name">Shop by Category</div><div class="desc">Category grid with fitment badges</div></a>
+    <a class="card" href="PDP.dc.html"><div class="name">Product Detail</div><div class="desc">Buy box, compatibility, Ask about this part</div></a>
+  </div>
+
+  <h2>Main shopping flow — mobile</h2>
+  <div class="grid">
+    <a class="card" href="HomeMobile.dc.html"><div class="name">Home</div><div class="desc">Mobile — with functional hamburger menu</div></a>
+    <a class="card" href="FitmentMobile.dc.html"><div class="name">Find Your Fit</div><div class="desc">Mobile fitment &amp; vehicle selection</div></a>
+    <a class="card" href="CategoryMobile.dc.html"><div class="name">Shop by Category</div><div class="desc">Mobile category grid</div></a>
+    <a class="card" href="PDPMobile.dc.html"><div class="name">Product Detail</div><div class="desc">Mobile product page</div></a>
+  </div>
+
+  <h2>Add / Manage Your RV (V1)</h2>
+  <div class="grid">
+    <a class="card" href="VehicleModal-Desktop.dc.html"><div class="name">Vehicle Modal — Desktop</div><div class="desc">Saved vehicles, VIN lookup, model/year/floorplan quiz</div></a>
+    <a class="card" href="VehicleModal-Mobile.dc.html"><div class="name">Vehicle Modal — Mobile</div><div class="desc">Same flow, mobile layout</div></a>
+  </div>
+
+  <h2>Product Assistant Q&amp;A (V2)</h2>
+  <div class="grid">
+    <a class="card" href="ProductAssistant-Desktop.dc.html"><div class="name">Product Assistant — Desktop</div><div class="desc">Grounded chat: install, tools, fit, discount, abstain</div></a>
+    <a class="card" href="ProductAssistant-Mobile.dc.html"><div class="name">Product Assistant — Mobile</div><div class="desc">Same chat flow, mobile layout</div></a>
+  </div>
+
+  <h2>RV Quiz Flow — reference sequence (8 screens)</h2>
+  <p class="note">Standalone step-by-step reference for the model/year/floorplan quiz path.</p>
+  <div class="grid">
+    <a class="card" href="ModalFlow-1-Entry.dc.html"><div class="name">1. Entry</div><div class="desc">Identify your RV</div></a>
+    <a class="card" href="ModalFlow-2-VIN.dc.html"><div class="name">2. VIN</div><div class="desc">VIN lookup</div></a>
+    <a class="card" href="ModalFlow-3-Type.dc.html"><div class="name">3. Type</div><div class="desc">Class A / B / C / Travel Trailer</div></a>
+    <a class="card" href="ModalFlow-4-Model.dc.html"><div class="name">4. Model</div><div class="desc">Model selection</div></a>
+    <a class="card" href="ModalFlow-5-Year.dc.html"><div class="name">5. Year</div><div class="desc">Model year</div></a>
+    <a class="card" href="ModalFlow-6-Floorplan.dc.html"><div class="name">6. Floorplan</div><div class="desc">Floorplan selection</div></a>
+    <a class="card" href="ModalFlow-7-Match.dc.html"><div class="name">7. Match</div><div class="desc">Partial match — pending VIN verification</div></a>
+    <a class="card" href="ModalFlow-8-Categories.dc.html"><div class="name">8. Categories</div><div class="desc">What are you working on</div></a>
+  </div>
+
+</main>
+</body>
+</html>

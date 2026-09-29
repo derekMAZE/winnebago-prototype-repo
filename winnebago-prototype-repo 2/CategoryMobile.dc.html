@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Shop by category — Mobile</title>
+  <script src="./support.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+    @font-face { font-family: 'United Sans'; src: url('/_blob/a581525d0ead729014a0e95ba185d566') format('opentype'); font-weight: 300; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'United Sans'; src: url('/_blob/18cd1b4129f98af01b2a73dce4647443') format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'United Sans'; src: url('/_blob/2e767db33d427e136720ae1e634a8d51') format('opentype'); font-weight: 700; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'United Sans'; src: url('/_blob/110ddfa67f30f7f22a533370f4ab53d0') format('opentype'); font-weight: 800; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'United Sans'; src: url('/_blob/e8fc5e3c597f09109671d8c74772a6ec') format('opentype'); font-weight: 900; font-style: normal; font-display: swap; }
+    body { margin: 0; }
+    * { box-sizing: border-box; }
+    a { text-decoration: none; }
+  </style>
+</helmet>
+<div style="width: 390px; min-height: 1900px; background: #f1f2f2; font-family: Arial, sans-serif; color: #34393e;">
+
+  <!-- Header -->
+  <div style="background: #fff; border-bottom: 1px solid #e4e5e6; padding: 12px 18px; display: flex; align-items: center; justify-content: space-between;">
+    <a href="#" aria-label="Menu" style="width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#07263f" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
+    </a>
+    <a href="Home.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 3px;">
+      <img src="/_blob/f26af393a80570616b306429084af306" alt="Winnebago" style="height: 20px; width: auto; display: block;">
+      <div style="font-family: 'Lato', sans-serif; font-weight: 600; font-size: 8px; letter-spacing: 2px; color: #cd0e2d; text-transform: uppercase;">Parts &amp; Accessories</div>
+    </a>
+    <div style="display: flex; align-items: center; gap: 8px;">
+    <a onClick="{{toggleAccount}}" aria-label="Account" style="width: 40px; height: 40px; border-radius: 999px; background: #34393e; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 4-6 8-6s8 2 8 6"></path></svg>
+    </a>
+    <a href="#" aria-label="Cart" style="position: relative; width: 40px; height: 40px; border-radius: 8px; background: #07263f; display: inline-flex; align-items: center; justify-content: center;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.6"></circle><circle cx="18" cy="20" r="1.6"></circle><path d="M2 3h3l2.5 12.5A2 2 0 0 0 9.5 17H18a2 2 0 0 0 2-1.6L22 7H6"></path></svg>
+      <span style="position: absolute; top: -5px; right: -5px; background: #cd0e2d; color: #fff; font-family: 'Lato', sans-serif; font-weight: 700; font-size: 10px; width: 18px; height: 18px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center;">2</span>
+    </a>
+    </div>
+  </div>
+
+  <!-- Search -->
+  <div style="background: #fff; padding: 0 18px 14px;">
+    <div style="display: flex; align-items: center; border: 1px solid #c2c6c9; border-radius: 8px; padding: 11px 12px; gap: 10px;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#545454" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.5" y2="16.5"></line></svg>
+      <span style="font-size: 14px; color: #8a8f94;">Search parts&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- Breadcrumb -->
+  <div style="padding: 14px 18px 0; font-size: 12px; color: #8a8f94;">
+    <a href="Home.dc.html" style="color: #8a8f94;">Home</a> › <a href="Category.dc.html" style="color: #8a8f94;">Shop by category</a> › <span style="color: #34393e; font-weight: 700;">Electrical &amp; Batteries</span>
+  </div>
+
+  <!-- Category title -->
+  <div style="padding: 10px 18px 18px;">
+    <h1 style="margin: 0 0 8px; font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 27px; line-height: 1.08; color: #34393e; text-transform: none;">Electrical &amp; Batteries</h1>
+    <p style="margin: 0; font-size: 13.5px; line-height: 1.5; color: #545454;">House batteries, converters, inverters, solar charging and wiring for Winnebago motorhomes and travel trailers.</p>
+  </div>
+
+  <!-- Fitment prompt banner -->
+  <div style="padding: 0 18px 16px;">
+    <sc-if value="{{hasNoVehicle}}" hint-placeholder-val="{{false}}">
+      <div style="background: #131518; border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <svg width="20" height="20" viewBox="0 0 120 80" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="24" width="60" height="34" rx="6"></rect><path d="M78 34h16l10 12v12H78z"></path><circle cx="40" cy="64" r="8"></circle><circle cx="90" cy="64" r="8"></circle></svg>
+          <span style="color: #fff; font-size: 13px; line-height: 1.4;">Add your RV to see only the parts that fit — we'll flag anything that needs a quick check.</span>
+        </div>
+        <button onClick="{{openPanel}}" style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #131518; background: #fff; border: none; border-radius: 999px; padding: 11px; cursor: pointer;">Add my RV</button>
+      </div>
+    </sc-if>
+    <sc-if value="{{hasVehicle}}" hint-placeholder-val="{{true}}">
+      <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; padding: 13px 16px; display: flex; flex-direction: column; gap: 10px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#145C3D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span style="font-size: 13px; color: #23262a;">Showing parts filtered for your <strong style="font-weight: 700;">2026 Winnebago View 24D</strong></span>
+        </div>
+        <button onClick="{{openPanel}}" style="align-self: flex-start; font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 10.5px; letter-spacing: 1px; text-transform: uppercase; color: #545454; background: #fff; border: 1px solid #c2c6c9; border-radius: 999px; padding: 8px 14px; cursor: pointer;">Change vehicle</button>
+      </div>
+    </sc-if>
+  </div>
+
+  <!-- Toolbar -->
+  <div style="padding: 0 18px 14px; display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+    <div style="font-size: 13px; color: #545454;"><strong style="color: #131518; font-weight: 700;">32</strong> results</div>
+    <div style="display: flex; gap: 8px;">
+      <button onClick="{{openFilters}}" style="display: flex; align-items: center; gap: 6px; background: #fff; border: 1px solid #c2c6c9; border-radius: 999px; padding: 8px 14px; font-family: 'United Sans', Arial, sans-serif; font-weight: 800; font-size: 11.5px; letter-spacing: 0.5px; text-transform: uppercase; color: #34393e; cursor: pointer;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#34393e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="4 4 20 4 14 12 14 19 10 19 10 12 4 4"></polygon></svg>
+        Filters
+      </button>
+      <select style="border: 1px solid #c2c6c9; border-radius: 999px; padding: 8px 10px; font-size: 11.5px; color: #131518; background: #fff; font-family: 'United Sans', Arial, sans-serif; font-weight: 800;">
+        <option>Best sellers</option>
+        <option>Price: low to high</option>
+        <option>Price: high to low</option>
+        <option>Top rated</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Product grid -->
+  <div style="padding: 0 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+
+    <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
+      <a href="PDP.dc.html" style="display: block; height: 108px; background: url('/_blob/496cd761e0d4fe2e98cc869b07541d41') center/cover #f5f6f6; position: relative;">
+        
+      </a>
+      <div style="padding: 11px; display: flex; flex-direction: column; gap: 5px; flex-grow: 1;">
+        <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 12.5px; line-height: 1.25; color: #131518;">Group 31 Marine/RV Deep Cycle Battery, 100Ah AGM</div>
+        <div style="font-size: 10px; color: #8a8f94;">Part # 31DC-DL</div>
+        <div style="display: flex; align-items: center; gap: 4px;"><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><span style="font-size: 10px; color: #8a8f94; margin-left: 2px;">(214)</span></div>
+        <div style="margin-top: 1px; font-family: 'Lato', sans-serif; font-weight: 800; font-size: 15px; color: #07263f;">$289.99</div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 6px; padding: 8px 11px; background: #EAF6EE; border-top: 1px solid #B9E0C3;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#145C3D" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 10px; color: #145C3D;">Fits your 2026 View 24D</span></div>
+    </div>
+
+    <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
+      <a href="PDP.dc.html" style="display: block; height: 108px; background: url(&quot;/_blob/40ddc807a6af3d7924fc9c56d2888124&quot;) center / contain no-repeat; position: relative">
+      </a>
+      <div style="padding: 11px; display: flex; flex-direction: column; gap: 5px; flex-grow: 1;">
+        <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 12.5px; line-height: 1.25; color: #131518;">100W Portable Solar Charging Kit with Controller</div>
+        <div style="font-size: 10px; color: #8a8f94;">Part # SLR-100PK</div>
+        <div style="display: flex; align-items: center; gap: 4px;"><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><span style="font-size: 10px; color: #8a8f94; margin-left: 2px;">(87)</span></div>
+        <div style="margin-top: 1px; font-family: 'Lato', sans-serif; font-weight: 800; font-size: 15px; color: #07263f;">$219.00<span style="font-size: 11px; color: #8a8f94; text-decoration: line-through; margin-left: 4px;">$249.00</span></div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 6px; padding: 8px 11px; background: #EAF6EE; border-top: 1px solid #B9E0C3;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#145C3D" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 10px; color: #145C3D;">Fits your 2026 View 24D</span></div>
+    </div>
+
+    <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
+      <a href="PDP.dc.html" style="display: block; height: 108px; background: url(&quot;/_blob/63014e52b93bb00106f7754bc01598ca&quot;) center / contain no-repeat; position: relative">
+        
+      </a>
+      <div style="padding: 11px; display: flex; flex-direction: column; gap: 5px; flex-grow: 1;">
+        <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 12.5px; line-height: 1.25; color: #131518;">2000W Pure Sine Wave Power Inverter</div>
+        <div style="font-size: 10px; color: #8a8f94;">Part # INV-2000PS</div>
+        <div style="display: flex; align-items: center; gap: 4px;"><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><span style="font-size: 10px; color: #8a8f94; margin-left: 2px;">(63)</span></div>
+        <div style="margin-top: 1px; font-family: 'Lato', sans-serif; font-weight: 800; font-size: 15px; color: #07263f;">$349.99</div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 6px; padding: 8px 11px; background: #FBF1E4; border-top: 1px solid #E9C88B;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#B5751A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3.5 2"></path></svg><span style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 10px; color: #8a5a14;">Verify before purchase</span></div>
+    </div>
+
+    <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
+      <a href="PDP.dc.html" style="display: block; height: 108px; background: url(&quot;/_blob/43a15c5ae888774bf250f803be2df7a5&quot;) center / contain no-repeat; position: relative">
+      </a>
+      <div style="padding: 11px; display: flex; flex-direction: column; gap: 5px; flex-grow: 1;">
+        <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 12.5px; line-height: 1.25; color: #131518;">45A Converter/Charger Power Center</div>
+        <div style="font-size: 10px; color: #8a8f94;">Part # PD-4045</div>
+        <div style="display: flex; align-items: center; gap: 4px;"><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><span style="font-size: 10px; color: #8a8f94; margin-left: 2px;">(142)</span></div>
+        <div style="margin-top: 1px; font-family: 'Lato', sans-serif; font-weight: 800; font-size: 15px; color: #07263f;">$164.50</div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 6px; padding: 8px 11px; background: #EAF6EE; border-top: 1px solid #B9E0C3;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#145C3D" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 10px; color: #145C3D;">Fits your 2026 View 24D</span></div>
+    </div>
+
+    <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
+      <a href="PDP.dc.html" style="display: block; height: 108px; background: url(&quot;/_blob/11e4a52452c53358199296da0d103872&quot;) center / contain no-repeat; position: relative">
+      </a>
+      <div style="padding: 11px; display: flex; flex-direction: column; gap: 5px; flex-grow: 1;">
+        <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 12.5px; line-height: 1.25; color: #131518;">Group 31 Battery Box with Hold-Down Strap</div>
+        <div style="font-size: 10px; color: #8a8f94;">Part # BBX-31HD</div>
+        <div style="display: flex; align-items: center; gap: 4px;"><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><span style="font-size: 10px; color: #8a8f94; margin-left: 2px;">(51)</span></div>
+        <div style="margin-top: 1px; font-family: 'Lato', sans-serif; font-weight: 800; font-size: 15px; color: #07263f;">$34.99</div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 6px; padding: 8px 11px; background: #EAF6EE; border-top: 1px solid #B9E0C3;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#145C3D" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 10px; color: #145C3D;">Fits your 2026 View 24D</span></div>
+    </div>
+
+    <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
+      <a href="PDP.dc.html" style="display: block; height: 108px; background: url(&quot;/_blob/7ecfff7a917f31f08453a9a717891c47&quot;) center / contain no-repeat; position: relative">
+      </a>
+      <div style="padding: 11px; display: flex; flex-direction: column; gap: 5px; flex-grow: 1;">
+        <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 12.5px; line-height: 1.25; color: #131518;">4-Gauge Heavy Duty Battery Cable Set</div>
+        <div style="font-size: 10px; color: #8a8f94;">Part # CBL-4GA-SET</div>
+        <div style="display: flex; align-items: center; gap: 4px;"><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><span style="font-size: 10px; color: #8a8f94; margin-left: 2px;">(38)</span></div>
+        <div style="margin-top: 1px; font-family: 'Lato', sans-serif; font-weight: 800; font-size: 15px; color: #07263f;">$28.75</div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 6px; padding: 8px 11px; background: #FBF1E4; border-top: 1px solid #E9C88B;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#B5751A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3.5 2"></path></svg><span style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 10px; color: #8a5a14;">Verify before purchase</span></div>
+    </div>
+
+    <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
+      <a href="PDP.dc.html" style="display: block; height: 108px; background: url(&quot;/_blob/0a1f61db038a3618be2f3a68f9c4cb65&quot;) center / contain no-repeat; position: relative">
+        
+      </a>
+      <div style="padding: 11px; display: flex; flex-direction: column; gap: 5px; flex-grow: 1;">
+        <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 12.5px; line-height: 1.25; color: #131518;">Battery Disconnect Switch, 12-48V</div>
+        <div style="font-size: 10px; color: #8a8f94;">Part # DSC-1248</div>
+        <div style="display: flex; align-items: center; gap: 4px;"><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><span style="font-size: 10px; color: #8a8f94; margin-left: 2px;">(96)</span></div>
+        <div style="margin-top: 1px; font-family: 'Lato', sans-serif; font-weight: 800; font-size: 15px; color: #07263f;">$19.99</div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 6px; padding: 8px 11px; background: #EAF6EE; border-top: 1px solid #B9E0C3;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#145C3D" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 10px; color: #145C3D;">Fits your 2026 View 24D</span></div>
+    </div>
+
+    <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
+      <a href="PDP.dc.html" style="display: block; height: 108px; background: url(&quot;/_blob/7316fbc1edb0993053e78410e7b342b1&quot;) center / contain no-repeat; position: relative">
+      </a>
+      <div style="padding: 11px; display: flex; flex-direction: column; gap: 5px; flex-grow: 1;">
+        <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 12.5px; line-height: 1.25; color: #131518;">100Ah 12V LiFePO4 Lithium Battery</div>
+        <div style="font-size: 10px; color: #8a8f94;">Part # LFP-100-12</div>
+        <div style="display: flex; align-items: center; gap: 4px;"><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="#B5751A" stroke="none"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21.5 12 17.5 5.5 21.5 7.5 14 2 9.5 9 9"></polygon></svg><span style="font-size: 10px; color: #8a8f94; margin-left: 2px;">(176)</span></div>
+        <div style="margin-top: 1px; font-family: 'Lato', sans-serif; font-weight: 800; font-size: 15px; color: #07263f;">$599.00<span style="font-size: 11px; color: #8a8f94; text-decoration: line-through; margin-left: 4px;">$679.00</span></div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 6px; padding: 8px 11px; background: #EAF6EE; border-top: 1px solid #B9E0C3;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#145C3D" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 10px; color: #145C3D;">Fits your 2026 View 24D</span></div>
+    </div>
+
+  </div>
+
+  <!-- Pagination -->
+  <div style="display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 22px; padding: 0 18px;">
+    <a href="#" aria-label="Previous page" style="width: 36px; height: 36px; border-radius: 8px; border: 1px solid #d5d7d9; display: inline-flex; align-items: center; justify-content: center; opacity: 0.4;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34393e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </a>
+    <span style="font-size: 13px; color: #545454;">Page <strong style="color: #131518;">1</strong> of 8</span>
+    <a href="#" aria-label="Next page" style="width: 36px; height: 36px; border-radius: 8px; background: #07263f; display: inline-flex; align-items: center; justify-content: center;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <div style="background: linear-gradient(rgba(255,255,255,0.72), rgba(255,255,255,0.72)), url('/_blob/650b6bdeac9bab20539c33a3253d9d64') center/900px repeat, #ffffff; color: #545454; padding: 30px 18px; border-top: 1px solid #e4e5e6; margin-top: 30px;">
+    <img src="/_blob/f26af393a80570616b306429084af306" alt="Winnebago" style="height: 20px; width: auto; display: block;">
+    <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 9px; letter-spacing: 2px; color: #cd0e2d; text-transform: uppercase; margin-top: 6px;">Parts &amp; Accessories</div>
+    <div style="display: flex; gap: 10px; margin-top: 18px;">
+      <input type="email" placeholder="Email address" style="flex: 1; padding: 11px 14px; border-radius: 999px; border: 1px solid #d5d7d9; background: #fff; color: #131518; font-size: 13px;">
+      <a href="#" style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #fff; background: #000; border-radius: 999px; padding: 11px 18px; white-space: nowrap; display: flex; align-items: center">Sign up</a>
+    </div>
+    <div style="display: flex; gap: 20px; margin-top: 18px; font-size: 14px; flex-wrap: wrap;"><a href="Category.dc.html" style="color: #545454;">Shop by category</a><a href="Fitment.dc.html" style="color: #545454;">Find your fit</a><a href="#" style="color: #545454;">Support</a></div>
+    <div style="border-top: 1px solid #e4e5e6; margin-top: 20px; padding-top: 16px; font-size: 12px; color: #8a8f94;">Concept for Winnebago Industries RFP evaluation. The Maze Group.</div>
+  </div>
+
+  <!-- Filters bottom sheet -->
+  <sc-if value="{{filtersOpen}}" hint-placeholder-val="{{false}}">
+    <div onClick="{{closeFilters}}" style="position: fixed; inset: 0; background: rgba(20,22,24,0.45); z-index: 75;"></div>
+    <div style="position: fixed; left: 0; right: 0; bottom: 0; top: 60px; background: #fff; z-index: 76; border-radius: 16px 16px 0 0; display: flex; flex-direction: column; box-shadow: 0 -12px 30px rgba(2,10,20,0.2);">
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 18px 20px; border-bottom: 1px solid #e4e5e6; flex-shrink: 0;">
+        <span style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 16px; letter-spacing: 0.3px; text-transform: uppercase; color: #131518;">Filters</span>
+        <a onClick="{{closeFilters}}" aria-label="Close" style="width: 32px; height: 32px; border-radius: 999px; border: 1px solid #d5d7d9; display: inline-flex; align-items: center; justify-content: center; cursor: pointer;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#23262a" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </a>
+      </div>
+      <div style="flex-grow: 1; overflow-y: auto; padding: 4px 20px 20px;">
+
+        <div style="border-bottom: 1px solid #e4e5e6; padding: 16px 0;">
+          <button onClick="{{toggle_availability}}" style="width: 100%; background: none; border: none; padding: 0; display: flex; align-items: center; justify-content: space-between; cursor: pointer;">
+            <span style="font-family: 'United Sans', Arial, sans-serif; font-weight: 800; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; color: #131518;">Availability</span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#545454" stroke-width="2.6" stroke-linecap="round" style="transform: rotate({{availabilityRot}}deg); transition: transform 0.15s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <sc-if value="{{availabilityOpen}}" hint-placeholder-val="{{true}}">
+            <div style="margin-top: 10px; display: flex; flex-direction: column;">
+              <label style="display: flex; align-items: center; gap: 10px; padding: 8px 0; cursor: pointer;"><input type="checkbox" style="width: 17px; height: 17px; accent-color: #07263f; cursor: pointer;"><span style="font-size: 13.5px; color: #34393e; flex-grow: 1;">Pick up today</span><span style="font-size: 12px; color: #a3a8ac;">(12)</span></label>
+              <label style="display: flex; align-items: center; gap: 10px; padding: 8px 0; cursor: pointer;"><input type="checkbox" style="width: 17px; height: 17px; accent-color: #07263f; cursor: pointer;"><span style="font-size: 13.5px; color: #34393e; flex-grow: 1;">In stock online</span><span style="font-size: 12px; color: #a3a8ac;">(34)</span></label>
+              <label style="display: flex; align-items: center; gap: 10px; padding: 8px 0; cursor: pointer;"><input type="checkbox" style="width: 17px; height: 17px; accent-color: #07263f; cursor: pointer;"><span style="font-size: 13.5px; color: #34393e; flex-grow: 1;">Ship to store</span><span style="font-size: 12px; color: #a3a8ac;">(21)</span></label>
+            </div>
+          </sc-if>
+        </div>
+
+        <div style="border-bottom: 1px solid #e4e5e6; padding: 16px 0;">
+          <button onClick="{{toggle_category}}" style="width: 100%; background: none; border: none; padding: 0; display: flex; align-items: center; justify-content: space-between; cursor: pointer;">
+            <span style="font-family: 'United Sans', Arial, sans-serif; font-weight: 800; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; color: #131518;">Category</span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#545454" stroke-width="2.6" stroke-linecap="round" style="transform: rotate({{categoryRot}}deg); transition: transform 0.15s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <sc-if value="{{categoryOpen}}" hint-placeholder-val="{{true}}">
+            <div style="margin-top: 10px; display: flex; flex-direction: column;">
+              <label style="display: flex; align-items: center; gap: 10px; padding: 8px 0; cursor: pointer;"><input type="checkbox" style="width: 17px; height: 17px; accent-color: #07263f; cursor: pointer;"><span style="font-size: 13.5px; color: #34393e; flex-grow: 1;">Batteries</span><span style="font-size: 12px; color: #a3a8ac;">(24)</span></label>
+              <label style="display: flex; align-items: center; gap: 10px; padding: 8px 0; cursor: pointer;"><input type="checkbox" style="width: 17px; height: 17px; accent-color: #07263f; cursor: pointer;"><span style="font-size: 13.5px; color: #34393e; flex-grow: 1;">Chargers &amp; Converters</span><span style="font-size: 12px; color: #a3a8ac;">(10)</span></label>
+              <label style="display: flex; align-items: center; gap: 10px; padding: 8px 0; cursor: pointer;"><input type="checkbox" style="width: 17px; height: 17px; accent-color: #07263f; cursor: pointer;"><span style="font-size: 13.5px; color: #34393e; flex-grow: 1;">Inverters</span><span style="font-size: 12px; color: #a3a8ac;">(8)</span></label>
+              <label style="display: flex; align-items: center; gap: 10px; padding: 8px 0; cursor: pointer;"><input type="checkbox" style="width: 17px; height: 17px; accent-color: #07263f; cursor: pointer;"><span style="font-size: 13.5px; color: #34393e; flex-grow: 1;">Solar</span><span style="font-size: 12px; color: #a3a8ac;">(14)</span></label>
+              <label style="display: flex; align-items: center; gap: 10px; padding: 8px 0; cursor: pointer;"><input type="checkbox" style="width: 17px; height: 17px; accent-color: #07263f; cursor: pointer;"><span style="font-size: 13.5px; color: #34393e; flex-grow: 1;">Wiring &amp; Connectors</span><span style="font-size: 12px; color: #a3a8ac;">(18)</span></label>
+            </div>
+          </sc-if>
+        </div>
+
+        <div style="border-bottom: 1px solid #e4e5e6; padding: 16px 0;">
+          <button onClick="{{toggle_brand}}" style="width: 100%; background: none; border: none; padding: 0; display: flex; align-items: center; justify-content: space-between; cursor: pointer;">
+            <span style="font-family: 'United Sans', Arial, sans-serif; font-weight: 800; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; color: #131518;">Brand</span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#545454" stroke-width="2.6" stroke-linecap="round" style="transform: rotate({{brandRot}}deg); transition: transform 0.15s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <sc-if value="{{brandOpen}}" hint-placeholder-val="{{true}}">
+            <div style="margin-top: 10px; display: flex; flex-direction: column;">
+              <label style="display: flex; align-items: center; gap: 10px; padding: 8px 0; cursor: pointer;"><input type="checkbox" style="width: 17px; height: 17px; accent-color: #07263f; cursor: pointer;"><span style="font-size: 13.5px; color: #34393e; flex-grow: 1;">Battle Born</span><span style="font-size: 12px; color: #a3a8ac;">(9)</span></label>
+              <label style="display: flex; align-items: center; gap: 10px; padding: 8px 0; cursor: pointer;"><input type="checkbox" style="width: 17px; height: 17px; accent-color: #07263f; cursor: pointer;"><span style="font-size: 13.5px; color: #34393e; flex-grow: 1;">Renogy</span><span style="font-size: 12px; color: #a3a8ac;">(11)</span></label>
+              <label style="display: flex; align-items: center; gap: 10px; padding: 8px 0; cursor: pointer;"><input type="checkbox" style="width: 17px; height: 17px; accent-color: #07263f; cursor: pointer;"><span style="font-size: 13.5px; color: #34393e; flex-grow: 1;">Progressive Dynamics</span><span style="font-size: 12px; color: #a3a8ac;">(6)</span></label>
+              <label style="display: flex; align-items: center; gap: 10px; padding: 8px 0; cursor: pointer;"><input type="checkbox" style="width: 17px; height: 17px; accent-color: #07263f; cursor: pointer;"><span style="font-size: 13.5px; color: #34393e; flex-grow: 1;">Xantrex</span><span style="font-size: 12px; color: #a3a8ac;">(5)</span></label>
+              <label style="display: flex; align-items: center; gap: 10px; padding: 8px 0; cursor: pointer;"><input type="checkbox" style="width: 17px; height: 17px; accent-color: #07263f; cursor: pointer;"><span style="font-size: 13.5px; color: #34393e; flex-grow: 1;">Victron Energy</span><span style="font-size: 12px; color: #a3a8ac;">(4)</span></label>
+            </div>
+          </sc-if>
+        </div>
+
+        <div style="padding: 16px 0;">
+          <button onClick="{{toggle_rating}}" style="width: 100%; background: none; border: none; padding: 0; display: flex; align-items: center; justify-content: space-between; cursor: pointer;">
+            <span style="font-family: 'United Sans', Arial, sans-serif; font-weight: 800; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; color: #131518;">Customer rating</span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#545454" stroke-width="2.6" stroke-linecap="round" style="transform: rotate({{ratingRot}}deg); transition: transform 0.15s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <sc-if value="{{ratingOpen}}" hint-placeholder-val="{{false}}">
+            <div style="margin-top: 10px; display: flex; flex-direction: column;">
+              <label style="display: flex; align-items: center; gap: 10px; padding: 8px 0; cursor: pointer;"><input type="checkbox" style="width: 17px; height: 17px; accent-color: #07263f; cursor: pointer;"><span style="font-size: 13.5px; color: #34393e; flex-grow: 1;">4 stars &amp; up</span><span style="font-size: 12px; color: #a3a8ac;">(40)</span></label>
+              <label style="display: flex; align-items: center; gap: 10px; padding: 8px 0; cursor: pointer;"><input type="checkbox" style="width: 17px; height: 17px; accent-color: #07263f; cursor: pointer;"><span style="font-size: 13.5px; color: #34393e; flex-grow: 1;">3 stars &amp; up</span><span style="font-size: 12px; color: #a3a8ac;">(52)</span></label>
+            </div>
+          </sc-if>
+        </div>
+
+      </div>
+      <div style="border-top: 1px solid #e4e5e6; padding: 14px 20px; flex-shrink: 0; display: flex; gap: 10px;">
+        <a onClick="{{clearFilters}}" style="flex: 1; text-align: center; font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 11.5px; letter-spacing: 1px; text-transform: uppercase; color: #545454; border: 1px solid #c2c6c9; border-radius: 999px; padding: 12px; cursor: pointer;">Clear all</a>
+        <button onClick="{{closeFilters}}" style="flex: 1; font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 11.5px; letter-spacing: 1px; text-transform: uppercase; color: #fff; background: #000; border: none; border-radius: 999px; padding: 12px; cursor: pointer;">Show 32 results</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- Find Parts For My RV / Add-Change-RV quiz modal -->
+  <sc-if value="{{panelOpen}}" hint-placeholder-val="{{false}}">
+    <div onClick="{{closePanel}}" style="position: fixed; inset: 0; background: rgba(20,22,24,0.45); z-index: 80;"></div>
+    <div style="position: fixed; top: 0; right: 0; height: 100vh; width: 100%; max-width: 100vw; background: #fff; z-index: 81; box-shadow: -16px 0 40px rgba(2,10,20,0.22); display: flex; flex-direction: column;">
+
+      <!-- Header -->
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 20px 22px; border-bottom: 3px solid #07263f; flex-shrink: 0;">
+        <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 19px; letter-spacing: 0.3px; color: #131518; text-transform: uppercase;">
+          <sc-if value="{{isEntry}}" hint-placeholder-val="{{true}}"><sc-if value="{{hasVehicle}}" hint-placeholder-val="{{true}}">Change Your RV</sc-if><sc-if value="{{hasNoVehicle}}" hint-placeholder-val="{{false}}">Add Your RV</sc-if></sc-if>
+          <sc-if value="{{isNotEntry}}" hint-placeholder-val="{{false}}">Change Your RV</sc-if>
+        </div>
+        <a onClick="{{closePanel}}" aria-label="Close" style="width: 34px; height: 34px; border-radius: 999px; border: 1px solid #d5d7d9; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#23262a" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </a>
+      </div>
+
+      <!-- Body -->
+      <div style="flex-grow: 1; overflow-y: auto; padding: 22px;">
+
+        <!-- ENTRY: how would you like to identify your RV -->
+        <sc-if value="{{isEntry}}" hint-placeholder-val="{{true}}">
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <sc-if value="{{hasVehicle}}" hint-placeholder-val="{{true}}">
+              <div onClick="{{confirmSaved}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 15px; display: flex; align-items: center; gap: 14px; cursor: pointer;">
+                <span style="width: 34px; height: 34px; border-radius: 999px; background: #f1f2f2; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#07263f" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </span>
+                <div>
+                  <div style="font-family: Arial, sans-serif; font-weight: 800; font-size: 15px; color: #23262a;">My saved RV: {{savedVehicleLabel}}</div>
+                  <div style="font-family: Arial, sans-serif; font-size: 13px; color: #8a8f94; margin-top: 2px;">Continue with this RV</div>
+                </div>
+              </div>
+            </sc-if>
+            <div onClick="{{chooseVin}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 15px; display: flex; align-items: center; gap: 14px; cursor: pointer;">
+              <span style="width: 34px; height: 34px; border-radius: 8px; background: #f1f2f2; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#07263f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="6" y1="15" x2="12" y2="15"></line></svg>
+              </span>
+              <div>
+                <div style="font-family: Arial, sans-serif; font-weight: 800; font-size: 15px; color: #23262a;">VIN</div>
+                <div style="font-family: Arial, sans-serif; font-size: 13px; color: #8a8f94; margin-top: 2px;">From the Certification Label near the driver's door</div>
+              </div>
+            </div>
+            <div onClick="{{startModelPath}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 15px; display: flex; align-items: center; gap: 14px; cursor: pointer;">
+              <span style="width: 34px; height: 34px; border-radius: 8px; background: #f1f2f2; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#07263f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5a2 2 0 0 1 1.9-1.3h8.2A2 2 0 0 1 17 8l2 5"></path><path d="M2 13h20v4H2z"></path><circle cx="7" cy="18" r="1.5"></circle><circle cx="17" cy="18" r="1.5"></circle></svg>
+              </span>
+              <div>
+                <div style="font-family: Arial, sans-serif; font-weight: 800; font-size: 15px; color: #23262a;">Model, year and floorplan</div>
+                <div style="font-family: Arial, sans-serif; font-size: 13px; color: #8a8f94; margin-top: 2px;">If your paperwork isn't handy</div>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+
+        <!-- VIN chat step -->
+        <sc-if value="{{isVin}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; gap: 6px; margin-bottom: 18px;"><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #e4e5e6; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #e4e5e6; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #e4e5e6; border-radius: 999px;"></span></div>
+          <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px;"><div style="background: #f5f6f6; border-radius: 12px; padding: 14px 16px; max-width: 88%;">
+              <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #cd0e2d; margin-bottom: 6px;">Parts Assistant</div>
+              <div style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.45; color: #23262a;">Hi. Let's find parts that fit your Winnebago. I’ll only show parts we can confirm for your exact chassis and coach.</div><div style="font-family: Arial, sans-serif; font-size: 12px; color: #8a8f94; margin-top: 6px;">How would you like to identify it?</div>
+            </div><div style="align-self: flex-end; background: #07263f; color: #fff; border-radius: 12px; padding: 11px 16px; font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; max-width: 70%;">VIN</div><div style="background: #f5f6f6; border-radius: 12px; padding: 14px 16px; max-width: 88%;">
+              <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #cd0e2d; margin-bottom: 6px;">Parts Assistant</div>
+              <div style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.45; color: #23262a;">Enter the VIN or serial number from your Certification Label. We’ll match it exactly — no guesswork.</div>
+            </div></div>
+          <label style="display: block; font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 12px; letter-spacing: 0.5px; text-transform: uppercase; color: #545454;">VIN or serial number
+            <input type="text" placeholder="e.g. W1X4M2GY0PN123456" style="margin-top: 8px; width: 100%; border: 1px solid #c2c6c9; border-radius: 8px; padding: 13px 14px; font-size: 15px; font-family: Arial, sans-serif; color: #23262a;">
+          </label>
+          <div style="font-family: Arial, sans-serif; font-size: 12px; color: #8a8f94; line-height: 1.5; margin-top: 10px;">We don’t sell or share your VIN. It’s used only to match parts.</div>
+          <button onClick="{{submitVin}}" style="margin-top: 16px; width: 100%; font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; color: #fff; background: #000; border: none; border-radius: 999px; padding: 14px; cursor: pointer;">Look up my motorhome</button>
+        </sc-if>
+
+        <!-- Type step -->
+        <sc-if value="{{isType}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; gap: 6px; margin-bottom: 18px;"><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #e4e5e6; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #e4e5e6; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #e4e5e6; border-radius: 999px;"></span></div>
+          <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px;"><div style="background: #f5f6f6; border-radius: 12px; padding: 14px 16px; max-width: 88%;">
+              <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #cd0e2d; margin-bottom: 6px;">Parts Assistant</div>
+              <div style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.45; color: #23262a;">Hi. Let's find parts that fit your Winnebago. I’ll only show parts we can confirm for your exact chassis and coach.</div><div style="font-family: Arial, sans-serif; font-size: 12px; color: #8a8f94; margin-top: 6px;">How would you like to identify it?</div>
+            </div><div style="align-self: flex-end; background: #07263f; color: #fff; border-radius: 12px; padding: 11px 16px; font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; max-width: 70%;">Find by model and year</div><div style="background: #f5f6f6; border-radius: 12px; padding: 14px 16px; max-width: 88%;">
+              <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #cd0e2d; margin-bottom: 6px;">Parts Assistant</div>
+              <div style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.45; color: #23262a;">Which type of Winnebago do you own?</div>
+            </div></div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div onClick="{{selectTypeA}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+              <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Class A</div>
+            </div>
+            <div onClick="{{selectTypeVan}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+              <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Camper Van</div>
+            </div>
+            <div onClick="{{selectTypeC}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+              <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Class C</div>
+            </div>
+            <div onClick="{{selectTypeTrailer}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+              <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Travel Trailer</div>
+            </div>
+          </div>
+        </sc-if>
+
+        <!-- Model step -->
+        <sc-if value="{{isModel}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; gap: 6px; margin-bottom: 18px;"><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #e4e5e6; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #e4e5e6; border-radius: 999px;"></span></div>
+          <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px;"><div style="background: #f5f6f6; border-radius: 12px; padding: 14px 16px; max-width: 88%;">
+              <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #cd0e2d; margin-bottom: 6px;">Parts Assistant</div>
+              <div style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.45; color: #23262a;">Which type of Winnebago do you own?</div>
+            </div><div style="align-self: flex-end; background: #07263f; color: #fff; border-radius: 12px; padding: 11px 16px; font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; max-width: 70%;">{{quizType}}</div><div style="background: #f5f6f6; border-radius: 12px; padding: 14px 16px; max-width: 88%;">
+              <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #cd0e2d; margin-bottom: 6px;">Parts Assistant</div>
+              <div style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.45; color: #23262a;">Which model?</div>
+            </div></div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div onClick="{{selectModelVista}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+              <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Vista</div><div style="font-family: Arial, sans-serif; font-size: 12px; color: #8a8f94; margin-top: 2px;">Ford F53</div>
+            </div>
+            <div onClick="{{selectModelAdventurer}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+              <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Adventurer</div><div style="font-family: Arial, sans-serif; font-size: 12px; color: #8a8f94; margin-top: 2px;">Ford F53</div>
+            </div>
+            <div onClick="{{selectModelForza}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+              <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Forza</div><div style="font-family: Arial, sans-serif; font-size: 12px; color: #8a8f94; margin-top: 2px;">Freightliner XCS</div>
+            </div>
+            <div onClick="{{selectModelJourney}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+              <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Journey</div><div style="font-family: Arial, sans-serif; font-size: 12px; color: #8a8f94; margin-top: 2px;">Freightliner XCM</div>
+            </div>
+          </div>
+        </sc-if>
+
+        <!-- Year step -->
+        <sc-if value="{{isYear}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; gap: 6px; margin-bottom: 18px;"><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #e4e5e6; border-radius: 999px;"></span></div>
+          <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px;"><div style="background: #f5f6f6; border-radius: 12px; padding: 14px 16px; max-width: 88%;">
+              <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #cd0e2d; margin-bottom: 6px;">Parts Assistant</div>
+              <div style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.45; color: #23262a;">Which model?</div>
+            </div><div style="align-self: flex-end; background: #07263f; color: #fff; border-radius: 12px; padding: 11px 16px; font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; max-width: 70%;">{{quizModel}}</div><div style="background: #f5f6f6; border-radius: 12px; padding: 14px 16px; max-width: 88%;">
+              <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #cd0e2d; margin-bottom: 6px;">Parts Assistant</div>
+              <div style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.45; color: #23262a;">Model year? It’s on the Certification Label too, listed as MODEL YEAR, and it’s often one year ahead of the chassis year.</div>
+            </div></div>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+            <div onClick="{{selectYear26}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+              <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">2026</div>
+            </div>
+            <div onClick="{{selectYear25}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+              <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">2025</div>
+            </div>
+            <div onClick="{{selectYear24}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+              <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">2024</div>
+            </div>
+            <div onClick="{{selectYear23}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+              <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">2023</div>
+            </div>
+            <div onClick="{{selectYear22}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+              <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">2022</div>
+            </div>
+            <div onClick="{{selectYearOlder}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+              <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Older</div>
+            </div>
+          </div>
+        </sc-if>
+
+        <!-- Floorplan step -->
+        <sc-if value="{{isFloorplan}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; gap: 6px; margin-bottom: 18px;"><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #e4e5e6; border-radius: 999px;"></span></div>
+          <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px;"><div style="background: #f5f6f6; border-radius: 12px; padding: 14px 16px; max-width: 88%;">
+              <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #cd0e2d; margin-bottom: 6px;">Parts Assistant</div>
+              <div style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.45; color: #23262a;">Model year?</div>
+            </div><div style="align-self: flex-end; background: #07263f; color: #fff; border-radius: 12px; padding: 11px 16px; font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; max-width: 70%;">{{quizYear}}</div><div style="background: #f5f6f6; border-radius: 12px; padding: 14px 16px; max-width: 88%;">
+              <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #cd0e2d; margin-bottom: 6px;">Parts Assistant</div>
+              <div style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.45; color: #23262a;">Which floorplan? It’s the number after the model name on your price sheet, like 24D.</div><div style="font-family: Arial, sans-serif; font-size: 12px; color: #8a8f94; margin-top: 6px;">Not sure? Skip it. Floorplan-specific parts (windows, slide toppers, galley) will show as verify before purchase.</div>
+            </div></div>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+            <div onClick="{{selectFloorplan24D}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+              <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">24D</div>
+            </div>
+            <div onClick="{{selectFloorplan27T}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+              <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">27T</div>
+            </div>
+            <div onClick="{{selectFloorplan38W}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+              <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">38W</div>
+            </div>
+            <div onClick="{{selectFloorplanUnsure}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+              <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Not sure</div>
+            </div>
+          </div>
+        </sc-if>
+
+        <!-- Match step -->
+        <sc-if value="{{isMatch}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; gap: 6px; margin-bottom: 18px;"><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span></div>
+          <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px;"><div style="background: #f5f6f6; border-radius: 12px; padding: 14px 16px; max-width: 88%;">
+              <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #cd0e2d; margin-bottom: 6px;">Parts Assistant</div>
+              <div style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.45; color: #23262a;">Which floorplan?</div>
+            </div><div style="align-self: flex-end; background: #07263f; color: #fff; border-radius: 12px; padding: 11px 16px; font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; max-width: 70%;">{{quizFloorplan}}</div><div style="background: #f5f6f6; border-radius: 12px; padding: 14px 16px; max-width: 88%;">
+              <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #cd0e2d; margin-bottom: 6px;">Parts Assistant</div>
+              <div style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.45; color: #23262a;">Here’s what we’ll match against.</div>
+            </div></div>
+          <div style="border: 1px solid #e4e5e6; border-radius: 12px; padding: 20px;">
+            <div style="display: flex; align-items: center; gap: 7px; margin-bottom: 10px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#B5751A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3.5 2"></path></svg>
+              <span style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #B5751A;">Partial match — pending VIN verification</span>
+            </div>
+            <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 24px; color: #131518; text-transform: uppercase; margin-bottom: 10px;">{{quizYear}} {{quizModel}} {{quizFloorplan}}</div>
+            <div style="font-family: Arial, sans-serif; font-size: 14px; color: #545454;"><span style="color: #8a8f94;">Chassis&nbsp; </span><strong style="color: #23262a; font-weight: 700;">{{quizChassis}}</strong></div>
+            <div style="display: flex; gap: 10px; margin-top: 18px;">
+              <button onClick="{{confirmMatch}}" style="flex: 1; font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #fff; background: #000; border: none; border-radius: 999px; padding: 13px; cursor: pointer;">Yes, that’s my RV</button>
+              <button onClick="{{notMyRv}}" style="flex: 1; font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #131518; background: #fff; border: 2px solid #131518; border-radius: 999px; padding: 11px; cursor: pointer;">Not my RV</button>
+            </div>
+          </div>
+        </sc-if>
+
+        <!-- Categories step (post-confirm) -->
+        <sc-if value="{{isCategories}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; gap: 6px; margin-bottom: 18px;"><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span></div>
+          <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px;"><div style="background: #f5f6f6; border-radius: 12px; padding: 14px 16px; max-width: 88%;">
+              <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #cd0e2d; margin-bottom: 6px;">Parts Assistant</div>
+              <div style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.45; color: #23262a;">Saved. What are you working on today?</div>
+            </div></div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div onClick="{{pickCategory}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+              <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Awnings &amp; Slide-outs</div>
+            </div>
+            <div onClick="{{pickCategory}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+              <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Electrical &amp; Batteries</div>
+            </div>
+            <div onClick="{{pickCategory}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+              <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Plumbing &amp; Water</div>
+            </div>
+            <div onClick="{{pickCategory}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+              <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Heating &amp; Cooling</div>
+            </div>
+            <div onClick="{{pickCategory}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+              <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Exterior &amp; Body</div>
+            </div>
+            <div onClick="{{pickCategory}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+              <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Interior &amp; Galley</div>
+            </div>
+            <div onClick="{{pickCategory}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+              <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Chassis &amp; Steps</div>
+            </div>
+          </div>
+          <div onClick="{{pickCategory}}" style="margin-top: 10px; text-align: center; border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px; font-family: Arial, sans-serif; font-weight: 700; font-size: 13px; color: #23262a; cursor: pointer;">Show me everything that fits</div>
+        </sc-if>
+
+      </div>
+
+      <!-- Footer -->
+      <div style="border-top: 1px solid #e4e5e6; padding: 14px 22px; flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+        <span style="font-family: Arial, sans-serif; font-size: 11px; color: #8a8f94;">We don’t sell or share your VIN. It’s used only to match parts.</span>
+        <a onClick="{{startOver}}" style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 11px; letter-spacing: 0.5px; text-transform: uppercase; color: #545454; text-decoration: underline; cursor: pointer; white-space: nowrap;">Start over</a>
+      </div>
+    </div>
+  </sc-if>
+<sc-if value="{{accountOpen}}" hint-placeholder-val="{{false}}">
+    <div onClick="{{closeAccount}}" style="position: fixed; inset: 0; background: rgba(20,22,24,0.45); z-index: 69;"></div>
+    <div style="position: fixed; left: 0; right: 0; bottom: 0; background: #fff; z-index: 70; border-radius: 16px 16px 0 0; padding: 24px 20px 28px; box-shadow: 0 -12px 30px rgba(2,10,20,0.2);">
+      <div style="width: 36px; height: 4px; border-radius: 999px; background: #e4e5e6; margin: 0 auto 18px;"></div>
+      <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 800; font-size: 17px; color: #07263f; margin-bottom: 6px;">Save your RV to your account</div>
+      <p style="margin: 0 0 16px; font-size: 13px; line-height: 1.5; color: #545454;">Sign in to keep your motorhome details and fitment matches ready on every visit.</p>
+      <button style="width: 100%; font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #fff; background: #000; border: none; border-radius: 999px; padding: 14px; cursor: pointer; margin-bottom: 10px;">Sign in</button>
+      <button style="width: 100%; font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #000; background: #fff; border: 2px solid #000; border-radius: 999px; padding: 12px; cursor: pointer;">Create account</button>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":1900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const quizStep = this.state.quizStep ?? 'entry';
+    const quizType = this.state.quizType ?? 'Class A';
+    const quizModel = this.state.quizModel ?? 'Forza';
+    const quizChassis = this.state.quizChassis ?? 'Freightliner XCS';
+    const quizYear = this.state.quizYear ?? '2023';
+    const quizFloorplan = this.state.quizFloorplan ?? '38W';
+    const hasVehicle = this.state.hasVehicle ?? true;
+    const availabilityOpen = this.state.availabilityOpen ?? true;
+    const categoryOpen = this.state.categoryOpen ?? true;
+    const brandOpen = this.state.brandOpen ?? true;
+    const ratingOpen = this.state.ratingOpen ?? false;
+    return {
+      panelOpen: this.state.panelOpen ?? false,
+      hasVehicle: hasVehicle,
+      hasNoVehicle: !hasVehicle,
+      savedVehicleLabel: '2026 Winnebago View 24D',
+      isEntry: quizStep === 'entry',
+      isNotEntry: quizStep !== 'entry',
+      isVin: quizStep === 'vin',
+      isType: quizStep === 'type',
+      isModel: quizStep === 'model',
+      isYear: quizStep === 'year',
+      isFloorplan: quizStep === 'floorplan',
+      isMatch: quizStep === 'match',
+      isCategories: quizStep === 'categories',
+      quizType: quizType,
+      quizModel: quizModel,
+      quizChassis: quizChassis,
+      quizYear: quizYear,
+      quizFloorplan: quizFloorplan,
+      accountOpen: this.state.accountOpen ?? false,
+      toggleAccount: () => this.setState({ accountOpen: !(this.state.accountOpen ?? false) }),
+      closeAccount: () => this.setState({ accountOpen: false }),
+      openPanel: () => this.setState({ panelOpen: true, quizStep: 'entry' }),
+      closePanel: () => this.setState({ panelOpen: false }),
+      confirmSaved: () => this.setState({ panelOpen: false }),
+      chooseVin: () => this.setState({ quizStep: 'vin' }),
+      submitVin: () => this.setState({ quizStep: 'match', quizYear: '2023', quizModel: 'Forza', quizChassis: 'Freightliner XCS', quizFloorplan: '38W' }),
+      startModelPath: () => this.setState({ quizStep: 'type' }),
+      selectTypeA: () => this.setState({ quizStep: 'model', quizType: 'Class A' }),
+      selectTypeVan: () => this.setState({ quizStep: 'model', quizType: 'Camper Van' }),
+      selectTypeC: () => this.setState({ quizStep: 'model', quizType: 'Class C' }),
+      selectTypeTrailer: () => this.setState({ quizStep: 'model', quizType: 'Travel Trailer' }),
+      selectModelVista: () => this.setState({ quizStep: 'year', quizModel: 'Vista', quizChassis: 'Ford F53' }),
+      selectModelAdventurer: () => this.setState({ quizStep: 'year', quizModel: 'Adventurer', quizChassis: 'Ford F53' }),
+      selectModelForza: () => this.setState({ quizStep: 'year', quizModel: 'Forza', quizChassis: 'Freightliner XCS' }),
+      selectModelJourney: () => this.setState({ quizStep: 'year', quizModel: 'Journey', quizChassis: 'Freightliner XCM' }),
+      selectYear26: () => this.setState({ quizStep: 'floorplan', quizYear: '2026' }),
+      selectYear25: () => this.setState({ quizStep: 'floorplan', quizYear: '2025' }),
+      selectYear24: () => this.setState({ quizStep: 'floorplan', quizYear: '2024' }),
+      selectYear23: () => this.setState({ quizStep: 'floorplan', quizYear: '2023' }),
+      selectYear22: () => this.setState({ quizStep: 'floorplan', quizYear: '2022' }),
+      selectYearOlder: () => this.setState({ quizStep: 'floorplan', quizYear: 'Pre-2022' }),
+      selectFloorplan24D: () => this.setState({ quizStep: 'match', quizFloorplan: '24D' }),
+      selectFloorplan27T: () => this.setState({ quizStep: 'match', quizFloorplan: '27T' }),
+      selectFloorplan38W: () => this.setState({ quizStep: 'match', quizFloorplan: '38W' }),
+      selectFloorplanUnsure: () => this.setState({ quizStep: 'match', quizFloorplan: 'Not specified' }),
+      confirmMatch: () => this.setState({ quizStep: 'categories', hasVehicle: true }),
+      notMyRv: () => this.setState({ quizStep: 'type' }),
+      pickCategory: () => this.setState({ panelOpen: false, hasVehicle: true }),
+      startOver: () => this.setState({ quizStep: 'entry' }),
+      filtersOpen: this.state.filtersOpen ?? false,
+      openFilters: () => this.setState({ filtersOpen: true }),
+      closeFilters: () => this.setState({ filtersOpen: false }),
+      clearFilters: () => this.setState({ filtersOpen: false }),
+      availabilityOpen: availabilityOpen,
+      categoryOpen: categoryOpen,
+      brandOpen: brandOpen,
+      ratingOpen: ratingOpen,
+      availabilityRot: availabilityOpen ? 180 : 0,
+      categoryRot: categoryOpen ? 180 : 0,
+      brandRot: brandOpen ? 180 : 0,
+      ratingRot: ratingOpen ? 180 : 0,
+      toggle_availability: () => this.setState({ availabilityOpen: !availabilityOpen }),
+      toggle_category: () => this.setState({ categoryOpen: !categoryOpen }),
+      toggle_brand: () => this.setState({ brandOpen: !brandOpen }),
+      toggle_rating: () => this.setState({ ratingOpen: !ratingOpen })
+    };
+  }
+}
+</script>
+</body>
+</html>

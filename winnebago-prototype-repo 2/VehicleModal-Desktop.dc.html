@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    @font-face { font-family: 'United Sans'; src: url('/_blob/a581525d0ead729014a0e95ba185d566') format('opentype'); font-weight: 300; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'United Sans'; src: url('/_blob/18cd1b4129f98af01b2a73dce4647443') format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'United Sans'; src: url('/_blob/2e767db33d427e136720ae1e634a8d51') format('opentype'); font-weight: 700; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'United Sans'; src: url('/_blob/110ddfa67f30f7f22a533370f4ab53d0') format('opentype'); font-weight: 800; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'United Sans'; src: url('/_blob/e8fc5e3c597f09109671d8c74772a6ec') format('opentype'); font-weight: 900; font-style: normal; font-display: swap; }
+    body { margin: 0; }
+    * { box-sizing: border-box; }
+    a { text-decoration: none; }
+  </style>
+</helmet>
+<div style="width: 900px; min-height: 980px; background: #f1f2f2; font-family: Arial, sans-serif; color: #34393e; position: relative;">
+
+  <div style="padding: 20px 28px; font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #cd0e2d;">Version 1 — Add / Manage Your RV · Desktop drawer</div>
+
+  <div onClick="{{noop}}" style="position: fixed; inset: 0; background: rgba(20,22,24,0.45); z-index: 80;"></div>
+  <div style="position: fixed; top: 0; right: 0; height: 100vh; width: 700px; max-width: 100vw; background: #fff; z-index: 81; box-shadow: -16px 0 40px rgba(2,10,20,0.22); display: flex; flex-direction: column">
+
+    <!-- Header -->
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: 20px 22px; border-bottom: 3px solid #07263f; flex-shrink: 0;">
+      <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 19px; letter-spacing: 0.3px; color: #131518; text-transform: uppercase;">
+        <sc-if value="{{isEntry}}" hint-placeholder-val="{{true}}"><sc-if value="{{hasVehicle}}" hint-placeholder-val="{{true}}">Change Your RV</sc-if><sc-if value="{{hasNoVehicle}}" hint-placeholder-val="{{false}}">Add Your RV</sc-if></sc-if>
+        <sc-if value="{{isNotEntry}}" hint-placeholder-val="{{false}}">Change Your RV</sc-if>
+      </div>
+      <span aria-label="Close" style="width: 34px; height: 34px; border-radius: 999px; border: 1px solid #d5d7d9; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#23262a" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </span>
+    </div>
+
+    <!-- Body -->
+    <div style="flex-grow: 1; overflow-y: auto; padding: 22px; display: flex; flex-direction: column; gap: 24px">
+
+      <!-- ENTRY -->
+      <sc-if value="{{isEntry}}" hint-placeholder-val="{{true}}">
+        
+      </sc-if>
+
+      <!-- VIN -->
+      <sc-if value="{{isVin}}" hint-placeholder-val="{{false}}">
+        <div style="display: flex; gap: 6px; margin-bottom: 18px;"><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #e4e5e6; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #e4e5e6; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #e4e5e6; border-radius: 999px;"></span></div>
+        <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px;"><div style="background: #f5f6f6; border-radius: 12px; padding: 14px 16px; max-width: 88%;">
+            <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #cd0e2d; margin-bottom: 6px;">Parts Assistant</div>
+            <div style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.45; color: #23262a;">Hi. Let's find parts that fit your Winnebago. I’ll only show parts we can confirm for your exact chassis and coach.</div><div style="font-family: Arial, sans-serif; font-size: 12px; color: #8a8f94; margin-top: 6px;">How would you like to identify it?</div>
+          </div><div style="align-self: flex-end; background: #07263f; color: #fff; border-radius: 12px; padding: 11px 16px; font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; max-width: 70%;">VIN</div><div style="background: #f5f6f6; border-radius: 12px; padding: 14px 16px; max-width: 88%;">
+            <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #cd0e2d; margin-bottom: 6px;">Parts Assistant</div>
+            <div style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.45; color: #23262a;">Enter the VIN or serial number from your Certification Label. We’ll match it exactly — no guesswork.</div>
+          </div></div>
+        <label style="display: block; font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 12px; letter-spacing: 0.5px; text-transform: uppercase; color: #545454;">VIN or serial number
+          <input type="text" placeholder="e.g. W1X4M2GY0PN123456" style="margin-top: 8px; width: 100%; border: 1px solid #c2c6c9; border-radius: 8px; padding: 13px 14px; font-size: 15px; font-family: Arial, sans-serif; color: #23262a; text-transform: uppercase;">
+        </label>
+        <div style="font-family: Arial, sans-serif; font-size: 12px; color: #8a8f94; line-height: 1.5; margin-top: 10px;">Find it on the Certification Label near the driver’s door pillar, on the wall beside the driver’s seat, or in your InfoCase paperwork. We don’t sell or share your VIN.</div>
+        <sc-if value="{{vinShowError}}" hint-placeholder-val="{{false}}">
+          <div style="margin-top: 10px; border-left: 3px solid #B23A2E; background: #FBEDEB; border-radius: 6px; padding: 10px 12px; font-family: Arial, sans-serif; font-size: 12.5px; color: #7A241B; line-height: 1.5;">A VIN is 17 letters and numbers, and never uses I, O or Q. Check the label and try again.</div>
+        </sc-if>
+        <button onClick="{{submitVin}}" style="margin-top: 16px; width: 100%; font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; color: #fff; background: #000; border: none; border-radius: 999px; padding: 14px; cursor: pointer;">Look up my motorhome</button>
+        <div onClick="{{toggleVinError}}" style="margin-top: 12px; text-align: center; font-family: Arial, sans-serif; font-size: 11px; color: #b7bdc1; cursor: pointer;">(preview) toggle invalid VIN state</div>
+      </sc-if>
+
+      <!-- VIN CONFIRMED: full match, green -->
+      <sc-if value="{{isVinConfirmed}}" hint-placeholder-val="{{false}}">
+        <div style="display: flex; gap: 6px; margin-bottom: 18px;"><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span></div>
+        <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px;"><div style="background: #f5f6f6; border-radius: 12px; padding: 14px 16px; max-width: 88%;">
+            <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #cd0e2d; margin-bottom: 6px;">Parts Assistant</div>
+            <div style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.45; color: #23262a;">Found it. Here’s your confirmed build record — every part will show a verified fit.</div>
+          </div></div>
+        <div style="border: 1px solid #B9E0C3; background: #F4FBF6; border-radius: 12px; padding: 20px;">
+          <div style="display: flex; align-items: center; gap: 7px; margin-bottom: 10px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#145C3D" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #145C3D;">Confirmed build record — matched from VIN</span>
+          </div>
+          <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 24px; color: #131518; text-transform: uppercase; margin-bottom: 12px;">{{savedVehicleLabel}}</div>
+          <div style="display: flex; flex-direction: column; gap: 6px; font-family: Arial, sans-serif; font-size: 14px; color: #545454;">
+            <div><span style="color: #8a8f94;">Chassis&nbsp; </span><strong style="color: #23262a; font-weight: 700;">{{quizChassis}}</strong></div>
+            <div><span style="color: #8a8f94;">Build date&nbsp; </span><strong style="color: #23262a; font-weight: 700;">March 2025</strong></div>
+            <div><span style="color: #8a8f94;">Serial&nbsp; </span><strong style="color: #23262a; font-weight: 700;">WGV26D-041792</strong></div>
+          </div>
+          <div style="display: flex; gap: 10px; margin-top: 18px;">
+            <button onClick="{{confirmMatch}}" style="flex: 1; font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #fff; background: #000; border: none; border-radius: 999px; padding: 13px; cursor: pointer;">Yes, that’s my RV</button>
+            <button onClick="{{notMyRv}}" style="flex: 1; font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #131518; background: #fff; border: 2px solid #131518; border-radius: 999px; padding: 11px; cursor: pointer;">Not my RV</button>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- Type step -->
+      <sc-if value="{{isType}}" hint-placeholder-val="{{false}}">
+        <div style="display: flex; gap: 6px; margin-bottom: 18px;"><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #e4e5e6; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #e4e5e6; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #e4e5e6; border-radius: 999px;"></span></div>
+        <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px;"><div style="background: #f5f6f6; border-radius: 12px; padding: 14px 16px; max-width: 88%;">
+            <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #cd0e2d; margin-bottom: 6px;">Parts Assistant</div>
+            <div style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.45; color: #23262a;">Hi. Let's find parts that fit your Winnebago. I’ll only show parts we can confirm for your exact chassis and coach.</div><div style="font-family: Arial, sans-serif; font-size: 12px; color: #8a8f94; margin-top: 6px;">How would you like to identify it?</div>
+          </div><div style="align-self: flex-end; background: #07263f; color: #fff; border-radius: 12px; padding: 11px 16px; font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; max-width: 70%;">Find by model and year</div><div style="background: #f5f6f6; border-radius: 12px; padding: 14px 16px; max-width: 88%;">
+            <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #cd0e2d; margin-bottom: 6px;">Parts Assistant</div>
+            <div style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.45; color: #23262a;">Which type of Winnebago do you own?</div>
+          </div></div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div onClick="{{selectTypeA}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+            <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Class A</div>
+          </div>
+          <div onClick="{{selectTypeVan}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+            <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Class B (Camper Van)</div>
+          </div>
+          <div onClick="{{selectTypeC}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+            <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Class C</div>
+          </div>
+          <div style="border: 1px solid #e4e5e6; border-radius: 10px; padding: 13px 15px; opacity: 0.45;">
+            <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Travel Trailer</div>
+            <div style="font-family: Arial, sans-serif; font-size: 11px; color: #8a8f94; margin-top: 2px;">Not supported yet</div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- Model step -->
+      <sc-if value="{{isModel}}" hint-placeholder-val="{{false}}">
+        <div style="display: flex; gap: 6px; margin-bottom: 18px;"><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #e4e5e6; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #e4e5e6; border-radius: 999px;"></span></div>
+        <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px;"><div style="background: #f5f6f6; border-radius: 12px; padding: 14px 16px; max-width: 88%;">
+            <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #cd0e2d; margin-bottom: 6px;">Parts Assistant</div>
+            <div style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.45; color: #23262a;">Which type of Winnebago do you own?</div>
+          </div><div style="align-self: flex-end; background: #07263f; color: #fff; border-radius: 12px; padding: 11px 16px; font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; max-width: 70%;">{{quizType}}</div><div style="background: #f5f6f6; border-radius: 12px; padding: 14px 16px; max-width: 88%;">
+            <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #cd0e2d; margin-bottom: 6px;">Parts Assistant</div>
+            <div style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.45; color: #23262a;">Which model?</div>
+          </div></div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div onClick="{{selectModelVista}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+            <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Vista</div><div style="font-family: Arial, sans-serif; font-size: 12px; color: #8a8f94; margin-top: 2px;">Ford F53</div>
+          </div>
+          <div onClick="{{selectModelAdventurer}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+            <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Adventurer</div><div style="font-family: Arial, sans-serif; font-size: 12px; color: #8a8f94; margin-top: 2px;">Ford F53</div>
+          </div>
+          <div onClick="{{selectModelForza}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+            <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Forza</div><div style="font-family: Arial, sans-serif; font-size: 12px; color: #8a8f94; margin-top: 2px;">Freightliner XCS</div>
+          </div>
+          <div onClick="{{selectModelJourney}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+            <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Journey</div><div style="font-family: Arial, sans-serif; font-size: 12px; color: #8a8f94; margin-top: 2px;">Freightliner XCM</div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- Year step -->
+      <sc-if value="{{isYear}}" hint-placeholder-val="{{false}}">
+        <div style="display: flex; gap: 6px; margin-bottom: 18px;"><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #e4e5e6; border-radius: 999px;"></span></div>
+        <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px;"><div style="background: #f5f6f6; border-radius: 12px; padding: 14px 16px; max-width: 88%;">
+            <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #cd0e2d; margin-bottom: 6px;">Parts Assistant</div>
+            <div style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.45; color: #23262a;">Which model?</div>
+          </div><div style="align-self: flex-end; background: #07263f; color: #fff; border-radius: 12px; padding: 11px 16px; font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; max-width: 70%;">{{quizModel}}</div><div style="background: #f5f6f6; border-radius: 12px; padding: 14px 16px; max-width: 88%;">
+            <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #cd0e2d; margin-bottom: 6px;">Parts Assistant</div>
+            <div style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.45; color: #23262a;">Model year? It’s on the Certification Label too, listed as MODEL YEAR, and it’s often one year ahead of the chassis year.</div>
+          </div></div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+          <div onClick="{{selectYear26}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+            <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">2026</div>
+          </div>
+          <div onClick="{{selectYear25}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+            <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">2025</div>
+          </div>
+          <div onClick="{{selectYear24}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+            <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">2024</div>
+          </div>
+          <div onClick="{{selectYear23}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+            <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">2023</div>
+          </div>
+          <div onClick="{{selectYear22}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+            <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">2022</div>
+          </div>
+          <div onClick="{{selectYearOlder}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+            <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Older</div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- Floorplan step -->
+      <sc-if value="{{isFloorplan}}" hint-placeholder-val="{{false}}">
+        <div style="display: flex; gap: 6px; margin-bottom: 18px;"><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #e4e5e6; border-radius: 999px;"></span></div>
+        <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px;"><div style="background: #f5f6f6; border-radius: 12px; padding: 14px 16px; max-width: 88%;">
+            <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #cd0e2d; margin-bottom: 6px;">Parts Assistant</div>
+            <div style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.45; color: #23262a;">Model year?</div>
+          </div><div style="align-self: flex-end; background: #07263f; color: #fff; border-radius: 12px; padding: 11px 16px; font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; max-width: 70%;">{{quizYear}}</div><div style="background: #f5f6f6; border-radius: 12px; padding: 14px 16px; max-width: 88%;">
+            <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #cd0e2d; margin-bottom: 6px;">Parts Assistant</div>
+            <div style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.45; color: #23262a;">Which floorplan? It’s the number after the model name on your price sheet, like 24D.</div><div style="font-family: Arial, sans-serif; font-size: 12px; color: #8a8f94; margin-top: 6px;">Not sure? Skip it. Floorplan-specific parts (windows, slide toppers, galley) will show as verify before purchase.</div>
+          </div></div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+          <div onClick="{{selectFloorplan24D}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+            <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">24D</div>
+          </div>
+          <div onClick="{{selectFloorplan27T}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+            <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">27T</div>
+          </div>
+          <div onClick="{{selectFloorplan38W}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+            <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">38W</div>
+          </div>
+          <div onClick="{{selectFloorplanUnsure}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+            <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Not sure</div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- Match step (partial, amber) -->
+      <sc-if value="{{isMatch}}" hint-placeholder-val="{{false}}">
+        <div style="display: flex; gap: 6px; margin-bottom: 18px;"><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span></div>
+        <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px;"><div style="background: #f5f6f6; border-radius: 12px; padding: 14px 16px; max-width: 88%;">
+            <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #cd0e2d; margin-bottom: 6px;">Parts Assistant</div>
+            <div style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.45; color: #23262a;">Which floorplan?</div>
+          </div><div style="align-self: flex-end; background: #07263f; color: #fff; border-radius: 12px; padding: 11px 16px; font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; max-width: 70%;">{{quizFloorplan}}</div><div style="background: #f5f6f6; border-radius: 12px; padding: 14px 16px; max-width: 88%;">
+            <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #cd0e2d; margin-bottom: 6px;">Parts Assistant</div>
+            <div style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.45; color: #23262a;">Here’s what we’ll match against.</div>
+          </div></div>
+        <div style="border: 1px solid #e4e5e6; border-radius: 12px; padding: 20px;">
+          <div style="display: flex; align-items: center; gap: 7px; margin-bottom: 10px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#B5751A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3.5 2"></path></svg>
+            <span style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #B5751A;">Partial match — pending VIN verification</span>
+          </div>
+          <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 24px; color: #131518; text-transform: uppercase; margin-bottom: 10px;">{{quizYear}} {{quizModel}} {{quizFloorplan}}</div>
+          <div style="font-family: Arial, sans-serif; font-size: 14px; color: #545454;"><span style="color: #8a8f94;">Chassis&nbsp; </span><strong style="color: #23262a; font-weight: 700;">{{quizChassis}}</strong></div>
+          <div style="display: flex; gap: 10px; margin-top: 18px;">
+            <button onClick="{{confirmMatch}}" style="flex: 1; font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #fff; background: #000; border: none; border-radius: 999px; padding: 13px; cursor: pointer;">Yes, that’s my RV</button>
+            <button onClick="{{notMyRv}}" style="flex: 1; font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #131518; background: #fff; border: 2px solid #131518; border-radius: 999px; padding: 11px; cursor: pointer;">Not my RV</button>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- Categories step -->
+      <sc-if value="{{isCategories}}" hint-placeholder-val="{{false}}">
+        <div style="display: flex; gap: 6px; margin-bottom: 18px;"><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span><span style="flex: 1; height: 3px; background: #cd0e2d; border-radius: 999px;"></span></div>
+        <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px;"><div style="background: #f5f6f6; border-radius: 12px; padding: 14px 16px; max-width: 88%;">
+            <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #cd0e2d; margin-bottom: 6px;">Parts Assistant</div>
+            <div style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.45; color: #23262a;">Saved. What are you working on today?</div>
+          </div></div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div onClick="{{pickCategory}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+            <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Awnings &amp; Slide-outs</div>
+          </div>
+          <div onClick="{{pickCategory}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+            <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Electrical &amp; Batteries</div>
+          </div>
+          <div onClick="{{pickCategory}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+            <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Plumbing &amp; Water</div>
+          </div>
+          <div onClick="{{pickCategory}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+            <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Heating &amp; Cooling</div>
+          </div>
+          <div onClick="{{pickCategory}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+            <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Exterior &amp; Body</div>
+          </div>
+          <div onClick="{{pickCategory}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+            <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Interior &amp; Galley</div>
+          </div>
+          <div onClick="{{pickCategory}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px 15px; cursor: pointer;">
+            <div style="font-family: Arial, sans-serif; font-weight: 700; font-size: 14px; color: #23262a;">Chassis &amp; Steps</div>
+          </div>
+        </div>
+        <div onClick="{{pickCategory}}" style="margin-top: 10px; text-align: center; border: 1px solid #d5d7d9; border-radius: 10px; padding: 13px; font-family: Arial, sans-serif; font-weight: 700; font-size: 13px; color: #23262a; cursor: pointer;">Show me everything that fits</div>
+      </sc-if>
+
+    <div style="box-sizing: border-box; display: flex; flex-direction: column; gap: 12px"><div style="background: #fff; border: 2px solid #cd0e2d; border-radius: 14px; padding: 20px 22px; display: flex; align-items: center; gap: 20px">
+        <span style="position: relative; width: 56px; height: 56px; border-radius: 12px; background: url(&quot;/_blob/bcbcb172c8380d23551273e743688311&quot;) center / contain no-repeat; display: inline-flex; flex-shrink: 0">
+          <span style="position: absolute; bottom: -4px; right: -4px; width: 22px; height: 22px; border-radius: 999px; background: #cd0e2d; border: 2px solid #fff; display: inline-flex; align-items: center; justify-content: center;">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </span>
+        </span>
+        <div style="flex-grow: 1;">
+          <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 800; font-size: 20px; color: #34393e;">2026 Winnebago View 24D</div>
+          <div style="display: flex; gap: 22px; margin-top: 4px; font-size: 14px; color: #545454;">
+            <span><strong style="color: #34393e; font-weight: 600;">Floorplan:</strong> 24D</span>
+            <span><strong style="color: #34393e; font-weight: 600;">Chassis:</strong> Mercedes-Benz Sprinter 4500</span>
+          </div>
+        </div>
+
+        <a href="#" aria-label="Remove 2026 Winnebago View 24D" style="width: 38px; height: 38px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8a8f94" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6"></path><path d="M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
+        </a>
+      </div><div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 14px; padding: 20px 22px; display: flex; align-items: center; gap: 20px">
+        <span style="width: 56px; height: 56px; border-radius: 12px; background: url(&quot;/_blob/0c7f6fc45931d6f45e3812eac84b011f&quot;) center / contain no-repeat; display: inline-flex; flex-shrink: 0; opacity: 0.75"></span>
+        <div style="flex-grow: 1;">
+          <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 800; font-size: 20px; color: #34393e;">2023 Winnebago Vista 27T</div>
+          <div style="display: flex; gap: 22px; margin-top: 4px; font-size: 14px; color: #545454;">
+            <span><strong style="color: #34393e; font-weight: 600;">Floorplan:</strong> 27T</span>
+            <span><strong style="color: #34393e; font-weight: 600;">Chassis:</strong> Ford F-53</span>
+          </div>
+        </div>
+
+        <a href="#" aria-label="Remove 2023 Winnebago Vista 27T" style="width: 38px; height: 38px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8a8f94" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6"></path><path d="M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
+        </a>
+      </div></div>
+<div style="box-sizing: border-box; display: flex; flex-direction: row; gap: 12px; align-items: center"><div style="box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; padding-top: 24px; padding-right: 24px; padding-bottom: 24px; padding-left: 24px; width: 100%"><button onClick="{{openPanel}}" style="flex: 1; font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 14px; letter-spacing: 0.6px; text-transform: uppercase; color: #131518; background: transparent; border: none; text-decoration: underline; text-underline-offset: 3px; padding: 10px; cursor: pointer">MANAGE VEHICLES</button></div><button onClick="{{openPanel}}" style="width: 100%; font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 14px; letter-spacing: 1.2px; text-transform: uppercase; color: #fff; background: #000; border: 1px solid #3a3f45; border-radius: 999px; padding: 14px; cursor: pointer; display: block; padding-top: 16px; padding-right: 16px; padding-bottom: 16px; padding-left: 16px" type="button">ADD NEW VEHICLE</button></div></div>
+
+    <!-- Footer -->
+    
+  <div style="border-top: 1px solid #e4e5e6; padding: 14px 22px; flex-shrink: 0;">
+      <div style="display: flex; gap: 8px;">
+        <input type="text" placeholder="Ask about this part…" style="flex-grow: 1; border: 1px solid #c2c6c9; border-radius: 999px; padding: 12px 16px; font-size: 14px; font-family: Arial, sans-serif; color: #23262a;">
+        <span style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #fff; background: #cd0e2d; border-radius: 999px; padding: 12px 20px; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; justify-content: center;">Send</span>
+      </div>
+      <div style="font-family: Arial, sans-serif; font-size: 10.5px; color: #8a8f94; line-height: 1.5; margin-top: 10px;">Answers come only from Winnebago install guides, specs and policies. Conversations are logged and reviewed.</div>
+      <div style="text-align: center; margin-top: 8px;"><span style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 11px; letter-spacing: 0.5px; text-transform: uppercase; color: #545454; text-decoration: underline; cursor: pointer;">Back to my RV</span></div>
+    </div></div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":900,"height":980}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const quizStep = this.state.quizStep ?? 'entry';
+    const quizType = this.state.quizType ?? 'Class A';
+    const quizModel = this.state.quizModel ?? 'Forza';
+    const quizChassis = this.state.quizChassis ?? 'Freightliner XCS';
+    const quizYear = this.state.quizYear ?? '2023';
+    const quizFloorplan = this.state.quizFloorplan ?? '38W';
+    const hasVehicle = this.state.hasVehicle ?? true;
+    const savedVehicleLabel = this.state.savedVehicleLabel ?? '2026 Winnebago View 24D';
+    const switcherOpen = this.state.switcherOpen ?? false;
+    const vinShowError = this.state.vinShowError ?? false;
+    return {
+      hasVehicle, hasNoVehicle: !hasVehicle,
+      savedVehicleLabel,
+      switcherOpen,
+      vinShowError,
+      isEntry: quizStep === 'entry', isNotEntry: quizStep !== 'entry',
+      isVin: quizStep === 'vin', isVinConfirmed: quizStep === 'vinConfirmed',
+      isType: quizStep === 'type', isModel: quizStep === 'model',
+      isYear: quizStep === 'year', isFloorplan: quizStep === 'floorplan',
+      isMatch: quizStep === 'match', isCategories: quizStep === 'categories',
+      quizType, quizModel, quizChassis, quizYear, quizFloorplan,
+      noop: () => {},
+      toggleSwitcher: () => this.setState({ switcherOpen: !(this.state.switcherOpen ?? false) }),
+      switchToMinnie: () => this.setState({ savedVehicleLabel: '2019 Winnebago Minnie Winnie 25B', switcherOpen: false, quizStep: 'categories', hasVehicle: true }),
+      switchToTravato: () => this.setState({ savedVehicleLabel: '2021 Winnebago Travato 59K', switcherOpen: false, quizStep: 'categories', hasVehicle: true }),
+      confirmSaved: () => this.setState({ quizStep: 'categories' }),
+      chooseVin: () => this.setState({ quizStep: 'vin', switcherOpen: false, vinShowError: false }),
+      startModelPath: () => this.setState({ quizStep: 'type', switcherOpen: false }),
+      toggleVinError: () => this.setState({ vinShowError: !(this.state.vinShowError ?? false) }),
+      submitVin: () => this.setState({ quizStep: 'vinConfirmed', quizChassis: 'Freightliner XCS', vinShowError: false }),
+      selectTypeA: () => this.setState({ quizStep: 'model', quizType: 'Class A' }),
+      selectTypeVan: () => this.setState({ quizStep: 'model', quizType: 'Class B (Camper Van)' }),
+      selectTypeC: () => this.setState({ quizStep: 'model', quizType: 'Class C' }),
+      selectModelVista: () => this.setState({ quizStep: 'year', quizModel: 'Vista', quizChassis: 'Ford F53' }),
+      selectModelAdventurer: () => this.setState({ quizStep: 'year', quizModel: 'Adventurer', quizChassis: 'Ford F53' }),
+      selectModelForza: () => this.setState({ quizStep: 'year', quizModel: 'Forza', quizChassis: 'Freightliner XCS' }),
+      selectModelJourney: () => this.setState({ quizStep: 'year', quizModel: 'Journey', quizChassis: 'Freightliner XCM' }),
+      selectYear26: () => this.setState({ quizStep: 'floorplan', quizYear: '2026' }),
+      selectYear25: () => this.setState({ quizStep: 'floorplan', quizYear: '2025' }),
+      selectYear24: () => this.setState({ quizStep: 'floorplan', quizYear: '2024' }),
+      selectYear23: () => this.setState({ quizStep: 'floorplan', quizYear: '2023' }),
+      selectYear22: () => this.setState({ quizStep: 'floorplan', quizYear: '2022' }),
+      selectYearOlder: () => this.setState({ quizStep: 'floorplan', quizYear: 'Older' }),
+      selectFloorplan24D: () => this.setState({ quizStep: 'match', quizFloorplan: '24D' }),
+      selectFloorplan27T: () => this.setState({ quizStep: 'match', quizFloorplan: '27T' }),
+      selectFloorplan38W: () => this.setState({ quizStep: 'match', quizFloorplan: '38W' }),
+      selectFloorplanUnsure: () => this.setState({ quizStep: 'match', quizFloorplan: 'Unsure' }),
+      confirmMatch: () => this.setState({ quizStep: 'categories', hasVehicle: true, savedVehicleLabel: `${quizYear} Winnebago ${quizModel}` }),
+      notMyRv: () => this.setState({ quizStep: 'type' }),
+      pickCategory: () => this.setState({ hasVehicle: true }),
+      startOver: () => this.setState({ quizStep: 'entry', switcherOpen: false, vinShowError: false })
+    };
+  }
+}
+</script>
+</body>
+</html>
