@@ -1,0 +1,196 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Category.dc.html": {
+      "h": 2960,
+      "is_interactive": true,
+      "title": "Shop by Category — Desktop",
+      "w": 1440,
+      "x": 6171,
+      "y": 0
+    },
+    "CategoryMobile.dc.html": {
+      "h": 1900,
+      "is_interactive": true,
+      "title": "Shop by Category — Mobile",
+      "w": 390,
+      "x": 7691,
+      "y": 0
+    },
+    "Fitment.dc.html": {
+      "h": 2760,
+      "is_interactive": true,
+      "title": "Fitment & Vehicle Selection — Desktop",
+      "w": 1440,
+      "x": 3458,
+      "y": -22
+    },
+    "FitmentBadge-States.dc.html": {
+      "h": 456,
+      "title": "Fitment Badge — All 3 States",
+      "w": 1240,
+      "x": 1520,
+      "y": 5900
+    },
+    "FitmentCard-States.dc.html": {
+      "h": 677,
+      "title": "Fitment Confirmation Card — All 3 States",
+      "w": 640,
+      "x": 2900,
+      "y": 5900
+    },
+    "FitmentMobile.dc.html": {
+      "h": 2025,
+      "is_interactive": true,
+      "title": "Find your fit — Mobile",
+      "w": 390,
+      "x": 4978,
+      "y": -22
+    },
+    "Home.dc.html": {
+      "h": 2760,
+      "is_interactive": true,
+      "title": "Home — Desktop",
+      "w": 1440,
+      "x": 284,
+      "y": -4
+    },
+    "HomeMobile.dc.html": {
+      "h": 2060,
+      "is_interactive": true,
+      "title": "Home — Mobile",
+      "w": 390,
+      "x": 1804,
+      "y": -4
+    },
+    "InteractiveDemos.dc.html": {
+      "h": 460,
+      "is_interactive": true,
+      "title": "Interactive Modal Demos — hub",
+      "w": 900,
+      "x": 1520,
+      "y": 3300
+    },
+    "PDP.dc.html": {
+      "h": 2520,
+      "is_interactive": true,
+      "title": "Product Detail — Desktop",
+      "w": 1440,
+      "x": 8955,
+      "y": -24
+    },
+    "PDPMobile.dc.html": {
+      "h": 2800,
+      "is_interactive": true,
+      "title": "Product Detail — Mobile",
+      "w": 390,
+      "x": 10475,
+      "y": -24
+    },
+    "ProductAssistant-Desktop.dc.html": {
+      "h": 1080,
+      "is_interactive": true,
+      "title": "V2 — Product Assistant (Q&A) — Desktop",
+      "w": 900,
+      "x": 2930,
+      "y": 4400
+    },
+    "ProductAssistant-Mobile.dc.html": {
+      "h": 1180,
+      "is_interactive": true,
+      "title": "V2 — Product Assistant (Q&A) — Mobile",
+      "w": 390,
+      "x": 3890,
+      "y": 4400
+    },
+    "VehicleModal-Desktop.dc.html": {
+      "h": 980,
+      "is_interactive": true,
+      "title": "V1 — Add / Manage Your RV — Desktop",
+      "w": 900,
+      "x": 1520,
+      "y": 4400
+    },
+    "VehicleModal-Mobile.dc.html": {
+      "h": 1080,
+      "is_interactive": true,
+      "title": "V1 — Add / Manage Your RV — Mobile",
+      "w": 390,
+      "x": 2480,
+      "y": 4400
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-09-17T14:10:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "notes": {
+    "shape-ba03dr": {
+      "color": "red",
+      "css": {
+        "opacity": "0.5",
+        "stroke": "#FFCC1F",
+        "stroke-width": "3px"
+      },
+      "kind": "arrow",
+      "x": 2533,
+      "x2": 2533,
+      "y": 5562,
+      "y2": 5507
+    },
+    "shape-yvkkok": {
+      "color": "red",
+      "css": {
+        "opacity": "0.5",
+        "stroke": "#FFCC1F",
+        "stroke-width": "3px"
+      },
+      "kind": "arrow",
+      "x": 2335,
+      "x2": 2336,
+      "y": 5494,
+      "y2": 5407
+    },
+    "t1": {
+      "kind": "title1",
+      "maxW": 1440,
+      "text": "Winnebago Motorhomes · DTC Parts & Accessories — RFP Concept Screens",
+      "w": 240,
+      "x": 284,
+      "y": -236
+    },
+    "t3": {
+      "kind": "title1",
+      "maxW": 1440,
+      "size": 24,
+      "text": "Chat Modal — desktop & mobile versions ",
+      "w": 900,
+      "x": 1520,
+      "y": 4253
+    }
+  },
+  "order": [
+    "Home.dc.html",
+    "HomeMobile.dc.html",
+    "Fitment.dc.html",
+    "FitmentMobile.dc.html",
+    "PDP.dc.html",
+    "PDPMobile.dc.html",
+    "Category.dc.html",
+    "CategoryMobile.dc.html",
+    "VehicleModal-Desktop.dc.html",
+    "VehicleModal-Mobile.dc.html",
+    "ProductAssistant-Desktop.dc.html",
+    "ProductAssistant-Mobile.dc.html",
+    "FitmentBadge-States.dc.html",
+    "FitmentCard-States.dc.html",
+    "InteractiveDemos.dc.html"
+  ],
+  "pages": [],
+  "title": "Winnebago Motorhomes DTC — RFP Concept Screens"
+}

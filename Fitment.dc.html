@@ -21,32 +21,35 @@
     a { text-decoration: none; }
     @keyframes vehicleSwapIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
   
-    /* Hover / active affordance for clickable elements */
+    /* Hover / active affordance for clickable elements: a visible color/opacity shift plus a lift */
     button:not(:disabled),
     a[onClick],
     div[onClick]:not([style*="inset: 0"]),
     div[style*="border-radius: 12px"][style*="overflow: hidden"]:has(> a[href$=".dc.html"]) {
-      transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+      transition: filter 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
     }
     button:not(:disabled):hover,
     a[onClick]:hover,
     div[onClick]:not([style*="inset: 0"]):hover {
-      box-shadow: 0 6px 16px rgba(2,10,20,0.14);
+      filter: brightness(0.90);
+      box-shadow: 0 6px 16px rgba(2,10,20,0.22);
       transform: translateY(-1px);
     }
     button:not(:disabled):active,
     a[onClick]:active,
     div[onClick]:not([style*="inset: 0"]):active {
+      filter: brightness(0.82);
       transform: translateY(0);
       box-shadow: none;
     }
     div[style*="border-radius: 12px"][style*="overflow: hidden"]:has(> a[href$=".dc.html"]):hover {
-      box-shadow: 0 10px 24px rgba(2,10,20,0.14);
+      filter: brightness(0.93);
+      box-shadow: 0 10px 24px rgba(2,10,20,0.22);
       transform: translateY(-2px);
-      border-color: #c2c6c9 !important;
+      border-color: #07263f !important;
     }
     a[href$=".dc.html"]:hover {
-      opacity: 0.85;
+      opacity: 0.7;
     }
   </style>
 </helmet>
