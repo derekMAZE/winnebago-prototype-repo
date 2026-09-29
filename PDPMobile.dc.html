@@ -20,6 +20,34 @@
     body { margin: 0; }
     * { box-sizing: border-box; }
     a { text-decoration: none; }
+  
+    /* Hover / active affordance for clickable elements */
+    button:not(:disabled),
+    a[onClick],
+    div[onClick]:not([style*="inset: 0"]),
+    div[style*="border-radius: 12px"][style*="overflow: hidden"]:has(> a[href$=".dc.html"]) {
+      transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+    }
+    button:not(:disabled):hover,
+    a[onClick]:hover,
+    div[onClick]:not([style*="inset: 0"]):hover {
+      box-shadow: 0 6px 16px rgba(2,10,20,0.14);
+      transform: translateY(-1px);
+    }
+    button:not(:disabled):active,
+    a[onClick]:active,
+    div[onClick]:not([style*="inset: 0"]):active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+    div[style*="border-radius: 12px"][style*="overflow: hidden"]:has(> a[href$=".dc.html"]):hover {
+      box-shadow: 0 10px 24px rgba(2,10,20,0.14);
+      transform: translateY(-2px);
+      border-color: #c2c6c9 !important;
+    }
+    a[href$=".dc.html"]:hover {
+      opacity: 0.85;
+    }
   </style>
 </helmet>
 <div style="width: 390px; min-height: 2350px; background: #f1f2f2; font-family: Arial, sans-serif; color: #34393e; position: relative;">
@@ -240,7 +268,7 @@
     <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 9px; letter-spacing: 2px; color: #cd0e2d; text-transform: uppercase; margin-top: 6px;">Parts &amp; Accessories</div>
     <div style="display: flex; gap: 10px; margin-top: 18px;">
       <input type="email" placeholder="Email address" style="flex: 1; padding: 11px 14px; border-radius: 999px; border: 1px solid #d5d7d9; background: #fff; color: #131518; font-size: 13px;">
-      <a href="#" style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #fff; background: #000; border-radius: 999px; padding: 11px 18px; white-space: nowrap; display: flex">Sign up</a>
+      <a href="#" style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #fff; background: #000; border-radius: 999px; padding: 11px 18px; white-space: nowrap; display: flex; align-items: center">Sign up</a>
     </div>
     <div style="display: flex; gap: 20px; margin-top: 18px; font-size: 14px; flex-wrap: wrap;"><a href="CategoryMobile.dc.html" style="color: #545454;">Shop by category</a><a href="FitmentMobile.dc.html" style="color: #545454;">Find your fit</a><a href="#" style="color: #545454;">Support</a></div>
     <div style="border-top: 1px solid #e4e5e6; margin-top: 20px; padding-top: 16px; font-size: 12px; color: #8a8f94;">Concept for Winnebago Industries RFP evaluation. The Maze Group.</div>

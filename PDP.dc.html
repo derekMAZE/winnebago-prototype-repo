@@ -18,6 +18,34 @@
     body { margin: 0; }
     * { box-sizing: border-box; }
     a { text-decoration: none; }
+  
+    /* Hover / active affordance for clickable elements */
+    button:not(:disabled),
+    a[onClick],
+    div[onClick]:not([style*="inset: 0"]),
+    div[style*="border-radius: 12px"][style*="overflow: hidden"]:has(> a[href$=".dc.html"]) {
+      transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+    }
+    button:not(:disabled):hover,
+    a[onClick]:hover,
+    div[onClick]:not([style*="inset: 0"]):hover {
+      box-shadow: 0 6px 16px rgba(2,10,20,0.14);
+      transform: translateY(-1px);
+    }
+    button:not(:disabled):active,
+    a[onClick]:active,
+    div[onClick]:not([style*="inset: 0"]):active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+    div[style*="border-radius: 12px"][style*="overflow: hidden"]:has(> a[href$=".dc.html"]):hover {
+      box-shadow: 0 10px 24px rgba(2,10,20,0.14);
+      transform: translateY(-2px);
+      border-color: #c2c6c9 !important;
+    }
+    a[href$=".dc.html"]:hover {
+      opacity: 0.85;
+    }
   </style>
 </helmet>
 <div style="width: 1440px; min-height: 2520px; background: #f1f2f2; font-family: Arial, sans-serif; color: #34393e; position: relative">
@@ -32,7 +60,6 @@
       <nav style="display: flex; gap: 26px; font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 13px; letter-spacing: 1.2px; text-transform: uppercase; color: #34393e; flex-grow: 1;">
         <a href="Category.dc.html" style="color: #cd0e2d; display: flex; align-items: center">Shop by category</a>
         <a href="Fitment.dc.html" style="color: #34393e; display: flex; align-items: center">Find your fit</a>
-        <a href="#" style="color: #34393e; display: flex; align-items: center">Accessories</a>
         <a href="#" aria-label="Support" title="Support" style="color: #34393e; display: inline-flex; align-items: center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34393e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></a>
       </nav>
       <div style="display: flex; align-items: center; gap: 14px;">
@@ -55,10 +82,8 @@
           </sc-if>
         </div>
         <button onClick="{{openPanel}}" style="display: flex; align-items: center; gap: 10px; background: #fff; border: 1px solid #c2c6c9; border-radius: 999px; padding: 6px 16px 6px 6px; cursor: pointer;">
-          <span style="position: relative; width: 32px; height: 32px; border-radius: 999px; overflow: hidden; background: #f1f2f2 url(&quot;/_blob/bcbcb172c8380d23551273e743688311&quot;) center / cover no-repeat; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">
-            <span style="position: absolute; bottom: -2px; right: -2px; width: 16px; height: 16px; border-radius: 999px; background: #cd0e2d; border: 2px solid #fff; display: inline-flex; align-items: center; justify-content: center;">
-              <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-            </span>
+          <span style="position: relative; width: 42px; height: 32px; border-radius: 999px; overflow: hidden; background: #f1f2f2 url(&quot;/_blob/bcbcb172c8380d23551273e743688311&quot;) center / cover no-repeat; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0">
+            
           </span>
           <span style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #34393e; text-align: left"><sc-if value="{{hasVehicle}}" hint-placeholder-val="{{true}}">2023 Forza 38W</sc-if><sc-if value="{{hasNoVehicle}}" hint-placeholder-val="{{false}}">Add Vehicle</sc-if></span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#545454" stroke-width="2.4" stroke-linecap="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -67,6 +92,9 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#545454" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.5" y2="16.5"></line></svg>
           <span style="font-size: 14px; color: #8a8f94;">Search parts&nbsp;</span>
         </div>
+        <a onClick="{{openAssistant}}" aria-label="Ask about parts" title="Ask about parts" style="width: 44px; height: 44px; border-radius: 8px; border: 1px solid #c2c6c9; background: #fff; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0;">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#07263f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        </a>
         <a href="#" aria-label="Cart" style="position: relative; width: 44px; height: 44px; border-radius: 8px; background: #07263f; display: inline-flex; align-items: center; justify-content: center;">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.6"></circle><circle cx="18" cy="20" r="1.6"></circle><path d="M2 3h3l2.5 12.5A2 2 0 0 0 9.5 17H18a2 2 0 0 0 2-1.6L22 7H6"></path></svg>
           <span style="position: absolute; top: -6px; right: -6px; background: #cd0e2d; color: #fff; font-family: 'Lato', sans-serif; font-weight: 700; font-size: 11px; width: 20px; height: 20px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center;">2</span>

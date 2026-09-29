@@ -20,6 +20,34 @@
     body { margin: 0; }
     * { box-sizing: border-box; }
     a { text-decoration: none; }
+  
+    /* Hover / active affordance for clickable elements */
+    button:not(:disabled),
+    a[onClick],
+    div[onClick]:not([style*="inset: 0"]),
+    div[style*="border-radius: 12px"][style*="overflow: hidden"]:has(> a[href$=".dc.html"]) {
+      transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+    }
+    button:not(:disabled):hover,
+    a[onClick]:hover,
+    div[onClick]:not([style*="inset: 0"]):hover {
+      box-shadow: 0 6px 16px rgba(2,10,20,0.14);
+      transform: translateY(-1px);
+    }
+    button:not(:disabled):active,
+    a[onClick]:active,
+    div[onClick]:not([style*="inset: 0"]):active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+    div[style*="border-radius: 12px"][style*="overflow: hidden"]:has(> a[href$=".dc.html"]):hover {
+      box-shadow: 0 10px 24px rgba(2,10,20,0.14);
+      transform: translateY(-2px);
+      border-color: #c2c6c9 !important;
+    }
+    a[href$=".dc.html"]:hover {
+      opacity: 0.85;
+    }
   </style>
 </helmet>
 <div style="width: 390px; min-height: 1780px; background: #f1f2f2; font-family: Arial, sans-serif; color: #34393e;">
