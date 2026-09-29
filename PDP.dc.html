@@ -20,38 +20,39 @@
     a { text-decoration: none; }
   
     /* Hover / active affordance for clickable elements: a visible color/opacity shift plus a lift.
-       Card-style containers (product cards via a stretched overlay link, category tiles as a
-       single linked card) get the fuller treatment; plain text nav/footer links just get an
-       opacity dim; nothing without a real handler or href gets a hover state at all. */
-    button:not(:disabled),
-    a[onClick],
-    div[onClick]:not([style*="inset: 0"]),
-    div[style*="border-radius: 12px"][style*="overflow: hidden"]:has(> a[href$=".dc.html"]),
+       The DCLogic runtime strips the onClick attribute after hydration, so CSS can't key off it;
+       cursor: pointer is this codebase's existing deliberate "this is clickable" signal on links
+       and divs, and buttons are assumed clickable unless marked data-decorative. Card-style
+       containers get the fuller treatment; plain text nav/footer links with a real destination
+       just get an opacity dim; anything with neither a pointer cursor nor a real destination
+       (add to cart, quantity steppers, placeholder "#" links) gets no hover at all. */
+    button:not(:disabled):not([data-decorative]),
+    a[style*="cursor: pointer"]:not([style*="overflow: hidden"]):not([data-decorative]),
+    div[style*="cursor: pointer"]:not([data-decorative]),
     a[style*="border-radius: 12px"][style*="overflow: hidden"] {
       transition: filter 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
     }
-    button:not(:disabled):hover,
-    a[onClick]:hover,
-    div[onClick]:not([style*="inset: 0"]):hover {
+    button:not(:disabled):not([data-decorative]):hover,
+    a[style*="cursor: pointer"]:not([style*="overflow: hidden"]):not([data-decorative]):hover,
+    div[style*="cursor: pointer"]:not([data-decorative]):hover {
       filter: brightness(0.90);
       box-shadow: 0 6px 16px rgba(2,10,20,0.22);
       transform: translateY(-1px);
     }
-    button:not(:disabled):active,
-    a[onClick]:active,
-    div[onClick]:not([style*="inset: 0"]):active {
+    button:not(:disabled):not([data-decorative]):active,
+    a[style*="cursor: pointer"]:not([style*="overflow: hidden"]):not([data-decorative]):active,
+    div[style*="cursor: pointer"]:not([data-decorative]):active {
       filter: brightness(0.82);
       transform: translateY(0);
       box-shadow: none;
     }
-    div[style*="border-radius: 12px"][style*="overflow: hidden"]:has(> a[href$=".dc.html"]):hover,
     a[style*="border-radius: 12px"][style*="overflow: hidden"]:hover {
       filter: brightness(0.93);
       box-shadow: 0 10px 24px rgba(2,10,20,0.22);
       transform: translateY(-2px);
       border-color: #07263f !important;
     }
-    a[href$=".dc.html"]:not([style*="position: absolute"]):not([style*="overflow: hidden"]):hover {
+    a[href$=".dc.html"]:not([style*="overflow: hidden"]):not([style*="cursor: pointer"]):hover {
       opacity: 0.7;
     }
   </style>
@@ -166,11 +167,11 @@
       <!-- Quantity + add to cart -->
       <div style="display: flex; gap: 14px; align-items: stretch;">
         <div style="display: flex; align-items: center; border: 1px solid #c2c6c9; border-radius: 8px; overflow: hidden;">
-          <button aria-label="Decrease quantity" style="width: 46px; height: 52px; border: none; background: #fff; font-size: 22px; color: #34393e; cursor: pointer;">−</button>
+          <button aria-label="Decrease quantity" data-decorative="true" style="width: 46px; height: 52px; border: none; background: #fff; font-size: 22px; color: #34393e; cursor: pointer;">−</button>
           <span style="width: 44px; text-align: center; font-weight: 700; font-size: 17px;">1</span>
-          <button aria-label="Increase quantity" style="width: 46px; height: 52px; border: none; background: #fff; font-size: 22px; color: #34393e; cursor: pointer;">+</button>
+          <button aria-label="Increase quantity" data-decorative="true" style="width: 46px; height: 52px; border: none; background: #fff; font-size: 22px; color: #34393e; cursor: pointer;">+</button>
         </div>
-        <button style="flex-grow: 1; font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 16px; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; background: #000; border: none; border-radius: 999px; padding: 15px; cursor: pointer;">Add to cart</button>
+        <button data-decorative="true" style="flex-grow: 1; font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 16px; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; background: #000; border: none; border-radius: 999px; padding: 15px; cursor: pointer;">Add to cart</button>
       </div>
 
       <!-- Fulfillment + returns -->
@@ -263,45 +264,48 @@
 
   <!-- Frequently installed together -->
   <div style="max-width: 1280px; margin: 0 auto; padding: 20px 40px 56px;">
-    <h2 style="margin: 0 0 6px; font-family: 'United Sans', Arial, sans-serif; font-weight: 800; font-size: 26px; color: #07263f;">Frequently installed together</h2>
+    <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 6px;">
+      <h2 style="margin: 0; font-family: 'United Sans', Arial, sans-serif; font-weight: 800; font-size: 26px; color: #07263f;">Frequently installed together</h2>
+      <a href="Category.dc.html" style="font-family: 'United Sans', Arial, sans-serif !important; font-weight: 900; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #cd0e2d !important; text-decoration: none !important;"><span style="font-family: 'United Sans', Arial, sans-serif !important; font-weight: 900; color: #cd0e2d !important;">View all parts &rsaquo;</span></a>
+    </div>
     <p style="margin: 0 0 22px; font-size: 15px; color: #545454;">Only parts that fit your 2026 View 24D are shown. Incompatible parts are never recommended.</p>
     <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px;">
 
-      <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; position: relative;"><a href="PDP.dc.html" aria-label="View product" style="position: absolute; inset: 0; z-index: 1;"></a>
+      <a href="PDP.dc.html" aria-label="View product" style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; color: inherit;">
         <div style="display: block; height: 150px; background: url(&quot;/_blob/ce97e2891bdcfddde497579a08aae5f7&quot;) center / contain no-repeat"></div>
         <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; flex-grow: 1;">
           <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 15px; line-height: 1.2;">Water Pump Strainer</div>
           <div style="font-family: 'Lato', sans-serif; font-weight: 800; font-size: 18px; color: #07263f;">$18.95</div>
           <div style="display: flex; align-items: center; gap: 7px; padding: 10px 16px; background: #EAF6EE; border-top: 1px solid #B9E0C3; margin: 0 -16px -14px; margin-top: auto;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#145C3D" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 12px; color: #145C3D;">Fits your 2026 Winnebago View 24D</span></div>
         </div>
-      </div>
+      </a>
 
-      <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; position: relative;"><a href="PDP.dc.html" aria-label="View product" style="position: absolute; inset: 0; z-index: 1;"></a>
+      <a href="PDP.dc.html" aria-label="View product" style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; color: inherit;">
         <div style="display: block; height: 150px; background: url('/_blob/2c787dcc2d679738ff1ff5b78f2e3833') center/cover;"></div>
         <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; flex-grow: 1;">
           <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 15px; line-height: 1.2;">Silent Check Valve Kit</div>
           <div style="font-family: 'Lato', sans-serif; font-weight: 800; font-size: 18px; color: #07263f;">$24.50</div>
           <div style="display: flex; align-items: center; gap: 7px; padding: 10px 16px; background: #EAF6EE; border-top: 1px solid #B9E0C3; margin: 0 -16px -14px; margin-top: auto;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#145C3D" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 12px; color: #145C3D;">Fits your 2026 Winnebago View 24D</span></div>
         </div>
-      </div>
+      </a>
 
-      <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; position: relative;"><a href="PDP.dc.html" aria-label="View product" style="position: absolute; inset: 0; z-index: 1;"></a>
+      <a href="PDP.dc.html" aria-label="View product" style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; color: inherit;">
         <div style="display: block; height: 150px; background: url('/_blob/05d681e9e6a1ef1ee40a9ddb743d35dc') center/cover;"></div>
         <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; flex-grow: 1;">
           <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 15px; line-height: 1.2;">Inline Water Filter</div>
           <div style="font-family: 'Lato', sans-serif; font-weight: 800; font-size: 18px; color: #07263f;">$32.00</div>
           <div style="display: flex; align-items: center; gap: 7px; padding: 10px 16px; background: #EAF6EE; border-top: 1px solid #B9E0C3; margin: 0 -16px -14px; margin-top: auto;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#145C3D" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 12px; color: #145C3D;">Fits your 2026 Winnebago View 24D</span></div>
         </div>
-      </div>
+      </a>
 
-      <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; position: relative;"><a href="PDP.dc.html" aria-label="View product" style="position: absolute; inset: 0; z-index: 1;"></a>
+      <a href="PDP.dc.html" aria-label="View product" style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; color: inherit;">
         <div style="display: block; height: 150px; background: url(&quot;/_blob/3574a0b034eeafd70a0768fb91076425&quot;) center / contain no-repeat"></div>
         <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; flex-grow: 1;">
           <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 15px; line-height: 1.2;">Pump Silencing Mount</div>
           <div style="font-family: 'Lato', sans-serif; font-weight: 800; font-size: 18px; color: #07263f;">$14.25</div>
           <div style="display: flex; align-items: center; gap: 7px; padding: 10px 16px; background: #EAF6EE; border-top: 1px solid #B9E0C3; margin: 0 -16px -14px; margin-top: auto;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#145C3D" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 12px; color: #145C3D;">Fits your 2026 Winnebago View 24D</span></div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 

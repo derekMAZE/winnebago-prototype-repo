@@ -22,38 +22,39 @@
     a { text-decoration: none; }
   
     /* Hover / active affordance for clickable elements: a visible color/opacity shift plus a lift.
-       Card-style containers (product cards via a stretched overlay link, category tiles as a
-       single linked card) get the fuller treatment; plain text nav/footer links just get an
-       opacity dim; nothing without a real handler or href gets a hover state at all. */
-    button:not(:disabled),
-    a[onClick],
-    div[onClick]:not([style*="inset: 0"]),
-    div[style*="border-radius: 12px"][style*="overflow: hidden"]:has(> a[href$=".dc.html"]),
+       The DCLogic runtime strips the onClick attribute after hydration, so CSS can't key off it;
+       cursor: pointer is this codebase's existing deliberate "this is clickable" signal on links
+       and divs, and buttons are assumed clickable unless marked data-decorative. Card-style
+       containers get the fuller treatment; plain text nav/footer links with a real destination
+       just get an opacity dim; anything with neither a pointer cursor nor a real destination
+       (add to cart, quantity steppers, placeholder "#" links) gets no hover at all. */
+    button:not(:disabled):not([data-decorative]),
+    a[style*="cursor: pointer"]:not([style*="overflow: hidden"]):not([data-decorative]),
+    div[style*="cursor: pointer"]:not([data-decorative]),
     a[style*="border-radius: 12px"][style*="overflow: hidden"] {
       transition: filter 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
     }
-    button:not(:disabled):hover,
-    a[onClick]:hover,
-    div[onClick]:not([style*="inset: 0"]):hover {
+    button:not(:disabled):not([data-decorative]):hover,
+    a[style*="cursor: pointer"]:not([style*="overflow: hidden"]):not([data-decorative]):hover,
+    div[style*="cursor: pointer"]:not([data-decorative]):hover {
       filter: brightness(0.90);
       box-shadow: 0 6px 16px rgba(2,10,20,0.22);
       transform: translateY(-1px);
     }
-    button:not(:disabled):active,
-    a[onClick]:active,
-    div[onClick]:not([style*="inset: 0"]):active {
+    button:not(:disabled):not([data-decorative]):active,
+    a[style*="cursor: pointer"]:not([style*="overflow: hidden"]):not([data-decorative]):active,
+    div[style*="cursor: pointer"]:not([data-decorative]):active {
       filter: brightness(0.82);
       transform: translateY(0);
       box-shadow: none;
     }
-    div[style*="border-radius: 12px"][style*="overflow: hidden"]:has(> a[href$=".dc.html"]):hover,
     a[style*="border-radius: 12px"][style*="overflow: hidden"]:hover {
       filter: brightness(0.93);
       box-shadow: 0 10px 24px rgba(2,10,20,0.22);
       transform: translateY(-2px);
       border-color: #07263f !important;
     }
-    a[href$=".dc.html"]:not([style*="position: absolute"]):not([style*="overflow: hidden"]):hover {
+    a[href$=".dc.html"]:not([style*="overflow: hidden"]):not([style*="cursor: pointer"]):hover {
       opacity: 0.7;
     }
   </style>
@@ -546,10 +547,10 @@
 
           <!-- Primary nav -->
           <div style="display: flex; flex-direction: column;">
-            <a href="CategoryMobile.dc.html" onClick="{{closeMenu}}" style="display: flex; align-items: center; justify-content: space-between; padding: 15px 4px; border-bottom: 1px solid #e4e5e6; font-family: 'United Sans', Arial, sans-serif; font-weight: 800; font-size: 16px; color: #131518;">Shop by category
+            <a href="CategoryMobile.dc.html" onClick="{{closeMenu}}" style="display: flex; align-items: center; justify-content: space-between; padding: 15px 4px; border-bottom: 1px solid #e4e5e6; font-family: 'United Sans', Arial, sans-serif !important; font-weight: 800; font-size: 16px; color: #131518 !important; text-decoration: none !important;"><span style="font-family: 'United Sans', Arial, sans-serif !important; font-weight: 800; color: #131518 !important;">Shop by category</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a8f94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
             </a>
-            <a href="FitmentMobile.dc.html" onClick="{{closeMenu}}" style="display: flex; align-items: center; justify-content: space-between; padding: 15px 4px; border-bottom: 1px solid #e4e5e6; font-family: 'United Sans', Arial, sans-serif; font-weight: 800; font-size: 16px; color: #131518;">Find your fit
+            <a href="FitmentMobile.dc.html" onClick="{{closeMenu}}" style="display: flex; align-items: center; justify-content: space-between; padding: 15px 4px; border-bottom: 1px solid #e4e5e6; font-family: 'United Sans', Arial, sans-serif !important; font-weight: 800; font-size: 16px; color: #131518 !important; text-decoration: none !important;"><span style="font-family: 'United Sans', Arial, sans-serif !important; font-weight: 800; color: #131518 !important;">Find your fit</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a8f94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
             </a>
             <a href="#" onClick="{{closeMenu}}" style="display: flex; align-items: center; justify-content: space-between; padding: 15px 4px; border-bottom: 1px solid #e4e5e6; font-family: 'United Sans', Arial, sans-serif; font-weight: 800; font-size: 16px; color: #131518;">Accessories
@@ -559,6 +560,10 @@
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a8f94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
             </a>
           </div>
+          <a href="#" onClick="{{closeMenu}}" style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 4px; padding: 14px; border-radius: 999px; background: #cd0e2d; box-shadow: 0 3px 8px rgba(205,14,45,0.35); cursor: pointer;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            <span style="font-family: 'United Sans', Arial, sans-serif !important; font-weight: 900; font-size: 14px; letter-spacing: 0.5px; text-transform: uppercase; color: #fff !important;">Chat with us</span>
+          </a>
 
           <!-- Account -->
           <div>

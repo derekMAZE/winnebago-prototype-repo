@@ -21,38 +21,39 @@
     a { text-decoration: none; }
   
     /* Hover / active affordance for clickable elements: a visible color/opacity shift plus a lift.
-       Card-style containers (product cards via a stretched overlay link, category tiles as a
-       single linked card) get the fuller treatment; plain text nav/footer links just get an
-       opacity dim; nothing without a real handler or href gets a hover state at all. */
-    button:not(:disabled),
-    a[onClick],
-    div[onClick]:not([style*="inset: 0"]),
-    div[style*="border-radius: 12px"][style*="overflow: hidden"]:has(> a[href$=".dc.html"]),
+       The DCLogic runtime strips the onClick attribute after hydration, so CSS can't key off it;
+       cursor: pointer is this codebase's existing deliberate "this is clickable" signal on links
+       and divs, and buttons are assumed clickable unless marked data-decorative. Card-style
+       containers get the fuller treatment; plain text nav/footer links with a real destination
+       just get an opacity dim; anything with neither a pointer cursor nor a real destination
+       (add to cart, quantity steppers, placeholder "#" links) gets no hover at all. */
+    button:not(:disabled):not([data-decorative]),
+    a[style*="cursor: pointer"]:not([style*="overflow: hidden"]):not([data-decorative]),
+    div[style*="cursor: pointer"]:not([data-decorative]),
     a[style*="border-radius: 12px"][style*="overflow: hidden"] {
       transition: filter 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
     }
-    button:not(:disabled):hover,
-    a[onClick]:hover,
-    div[onClick]:not([style*="inset: 0"]):hover {
+    button:not(:disabled):not([data-decorative]):hover,
+    a[style*="cursor: pointer"]:not([style*="overflow: hidden"]):not([data-decorative]):hover,
+    div[style*="cursor: pointer"]:not([data-decorative]):hover {
       filter: brightness(0.90);
       box-shadow: 0 6px 16px rgba(2,10,20,0.22);
       transform: translateY(-1px);
     }
-    button:not(:disabled):active,
-    a[onClick]:active,
-    div[onClick]:not([style*="inset: 0"]):active {
+    button:not(:disabled):not([data-decorative]):active,
+    a[style*="cursor: pointer"]:not([style*="overflow: hidden"]):not([data-decorative]):active,
+    div[style*="cursor: pointer"]:not([data-decorative]):active {
       filter: brightness(0.82);
       transform: translateY(0);
       box-shadow: none;
     }
-    div[style*="border-radius: 12px"][style*="overflow: hidden"]:has(> a[href$=".dc.html"]):hover,
     a[style*="border-radius: 12px"][style*="overflow: hidden"]:hover {
       filter: brightness(0.93);
       box-shadow: 0 10px 24px rgba(2,10,20,0.22);
       transform: translateY(-2px);
       border-color: #07263f !important;
     }
-    a[href$=".dc.html"]:not([style*="position: absolute"]):not([style*="overflow: hidden"]):hover {
+    a[href$=".dc.html"]:not([style*="overflow: hidden"]):not([style*="cursor: pointer"]):hover {
       opacity: 0.7;
     }
   </style>

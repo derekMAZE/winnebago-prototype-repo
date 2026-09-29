@@ -20,38 +20,39 @@
     a { text-decoration: none; }
   
     /* Hover / active affordance for clickable elements: a visible color/opacity shift plus a lift.
-       Card-style containers (product cards via a stretched overlay link, category tiles as a
-       single linked card) get the fuller treatment; plain text nav/footer links just get an
-       opacity dim; nothing without a real handler or href gets a hover state at all. */
-    button:not(:disabled),
-    a[onClick],
-    div[onClick]:not([style*="inset: 0"]),
-    div[style*="border-radius: 12px"][style*="overflow: hidden"]:has(> a[href$=".dc.html"]),
+       The DCLogic runtime strips the onClick attribute after hydration, so CSS can't key off it;
+       cursor: pointer is this codebase's existing deliberate "this is clickable" signal on links
+       and divs, and buttons are assumed clickable unless marked data-decorative. Card-style
+       containers get the fuller treatment; plain text nav/footer links with a real destination
+       just get an opacity dim; anything with neither a pointer cursor nor a real destination
+       (add to cart, quantity steppers, placeholder "#" links) gets no hover at all. */
+    button:not(:disabled):not([data-decorative]),
+    a[style*="cursor: pointer"]:not([style*="overflow: hidden"]):not([data-decorative]),
+    div[style*="cursor: pointer"]:not([data-decorative]),
     a[style*="border-radius: 12px"][style*="overflow: hidden"] {
       transition: filter 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
     }
-    button:not(:disabled):hover,
-    a[onClick]:hover,
-    div[onClick]:not([style*="inset: 0"]):hover {
+    button:not(:disabled):not([data-decorative]):hover,
+    a[style*="cursor: pointer"]:not([style*="overflow: hidden"]):not([data-decorative]):hover,
+    div[style*="cursor: pointer"]:not([data-decorative]):hover {
       filter: brightness(0.90);
       box-shadow: 0 6px 16px rgba(2,10,20,0.22);
       transform: translateY(-1px);
     }
-    button:not(:disabled):active,
-    a[onClick]:active,
-    div[onClick]:not([style*="inset: 0"]):active {
+    button:not(:disabled):not([data-decorative]):active,
+    a[style*="cursor: pointer"]:not([style*="overflow: hidden"]):not([data-decorative]):active,
+    div[style*="cursor: pointer"]:not([data-decorative]):active {
       filter: brightness(0.82);
       transform: translateY(0);
       box-shadow: none;
     }
-    div[style*="border-radius: 12px"][style*="overflow: hidden"]:has(> a[href$=".dc.html"]):hover,
     a[style*="border-radius: 12px"][style*="overflow: hidden"]:hover {
       filter: brightness(0.93);
       box-shadow: 0 10px 24px rgba(2,10,20,0.22);
       transform: translateY(-2px);
       border-color: #07263f !important;
     }
-    a[href$=".dc.html"]:not([style*="position: absolute"]):not([style*="overflow: hidden"]):hover {
+    a[href$=".dc.html"]:not([style*="overflow: hidden"]):not([style*="cursor: pointer"]):hover {
       opacity: 0.7;
     }
   </style>
@@ -308,7 +309,7 @@
       </div>
 
       <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px;">
-        <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; position: relative;"><a href="PDP.dc.html" aria-label="View product" style="position: absolute; inset: 0; z-index: 1;"></a>
+        <a href="PDP.dc.html" aria-label="View product" style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; color: inherit;">
           <div style="display: block; height: 168px; background: url('/_blob/496cd761e0d4fe2e98cc869b07541d41') center/cover #f5f6f6; position: relative;"></div>
           <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 7px; flex-grow: 1;">
             <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 14.5px; line-height: 1.25; color: #131518;">Group 31 Marine/RV Deep Cycle Battery, 100Ah AGM</div>
@@ -318,8 +319,8 @@
             <div style="margin-top: 2px; font-family: 'Lato', sans-serif; font-weight: 800; font-size: 19px; color: #07263f;">$289.99</div>
             <div style="display: flex; align-items: center; gap: 7px; padding: 10px 16px; background: #EAF6EE; border-top: 1px solid #B9E0C3; margin: 0 -16px -14px; margin-top: auto;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#145C3D" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 12px; color: #145C3D;">Fits your 2026 Winnebago View 24D</span></div>
           </div>
-        </div>
-        <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; position: relative;"><a href="PDP.dc.html" aria-label="View product" style="position: absolute; inset: 0; z-index: 1;"></a>
+        </a>
+        <a href="PDP.dc.html" aria-label="View product" style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; color: inherit;">
           <div style="display: block; height: 168px; background: url(&quot;/_blob/40ddc807a6af3d7924fc9c56d2888124&quot;) center / cover #f5f6f6 no-repeat; position: relative"></div>
           <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 7px; flex-grow: 1;">
             <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 14.5px; line-height: 1.25; color: #131518;">100W Portable Solar Charging Kit with Controller</div>
@@ -329,8 +330,8 @@
             <div style="margin-top: 2px; font-family: 'Lato', sans-serif; font-weight: 800; font-size: 19px; color: #07263f;">$219.00<span style="font-size: 13px; color: #8a8f94; text-decoration: line-through; margin-left: 6px;">$249.00</span></div>
             <div style="display: flex; align-items: center; gap: 7px; padding: 10px 16px; background: #EAF6EE; border-top: 1px solid #B9E0C3; margin: 0 -16px -14px; margin-top: auto;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#145C3D" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 12px; color: #145C3D;">Fits your 2026 Winnebago View 24D</span></div>
           </div>
-        </div>
-        <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; position: relative;"><a href="PDP.dc.html" aria-label="View product" style="position: absolute; inset: 0; z-index: 1;"></a>
+        </a>
+        <a href="PDP.dc.html" aria-label="View product" style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; color: inherit;">
           <div style="display: block; height: 168px; background: url(&quot;/_blob/63014e52b93bb00106f7754bc01598ca&quot;) center / contain no-repeat; position: relative"></div>
           <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 7px; flex-grow: 1;">
             <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 14.5px; line-height: 1.25; color: #131518;">2000W Pure Sine Wave Power Inverter</div>
@@ -340,8 +341,8 @@
             <div style="margin-top: 2px; font-family: 'Lato', sans-serif; font-weight: 800; font-size: 19px; color: #07263f;">$349.99</div>
             <div style="display: flex; align-items: center; gap: 7px; padding: 10px 16px; background: #FBF1E4; border-top: 1px solid #E9C88B; margin: 0 -16px -14px; margin-top: auto;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B5751A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3.5 2"></path></svg><span style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 12px; color: #8a5a14;">Verify fit before purchase</span></div>
           </div>
-        </div>
-        <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; position: relative;"><a href="PDP.dc.html" aria-label="View product" style="position: absolute; inset: 0; z-index: 1;"></a>
+        </a>
+        <a href="PDP.dc.html" aria-label="View product" style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; color: inherit;">
           <div style="display: block; height: 168px; background: url(&quot;/_blob/43a15c5ae888774bf250f803be2df7a5&quot;) center / cover #f5f6f6 no-repeat; position: relative"></div>
           <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 7px; flex-grow: 1;">
             <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 14.5px; line-height: 1.25; color: #131518;">45A Converter/Charger Power Center</div>
@@ -351,8 +352,8 @@
             <div style="margin-top: 2px; font-family: 'Lato', sans-serif; font-weight: 800; font-size: 19px; color: #07263f;">$164.50</div>
             <div style="display: flex; align-items: center; gap: 7px; padding: 10px 16px; background: #EAF6EE; border-top: 1px solid #B9E0C3; margin: 0 -16px -14px; margin-top: auto;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#145C3D" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 12px; color: #145C3D;">Fits your 2026 Winnebago View 24D</span></div>
           </div>
-        </div>
-        <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; position: relative;"><a href="PDP.dc.html" aria-label="View product" style="position: absolute; inset: 0; z-index: 1;"></a>
+        </a>
+        <a href="PDP.dc.html" aria-label="View product" style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; color: inherit;">
           <div style="display: block; height: 168px; background: url('/_blob/11e4a52452c53358199296da0d103872') center/cover #f5f6f6; position: relative;"></div>
           <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 7px; flex-grow: 1;">
             <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 14.5px; line-height: 1.25; color: #131518;">Group 31 Battery Box with Hold-Down Strap</div>
@@ -362,8 +363,8 @@
             <div style="margin-top: 2px; font-family: 'Lato', sans-serif; font-weight: 800; font-size: 19px; color: #07263f;">$34.99</div>
             <div style="display: flex; align-items: center; gap: 7px; padding: 10px 16px; background: #EAF6EE; border-top: 1px solid #B9E0C3; margin: 0 -16px -14px; margin-top: auto;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#145C3D" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 12px; color: #145C3D;">Fits your 2026 Winnebago View 24D</span></div>
           </div>
-        </div>
-        <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; position: relative;"><a href="PDP.dc.html" aria-label="View product" style="position: absolute; inset: 0; z-index: 1;"></a>
+        </a>
+        <a href="PDP.dc.html" aria-label="View product" style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; color: inherit;">
           <div style="display: block; height: 168px; background: url('/_blob/7ecfff7a917f31f08453a9a717891c47') center/cover #f5f6f6; position: relative;"></div>
           <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 7px; flex-grow: 1;">
             <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 14.5px; line-height: 1.25; color: #131518;">4-Gauge Heavy Duty Battery Cable Set</div>
@@ -373,8 +374,8 @@
             <div style="margin-top: 2px; font-family: 'Lato', sans-serif; font-weight: 800; font-size: 19px; color: #07263f;">$28.75</div>
             <div style="display: flex; align-items: center; gap: 7px; padding: 10px 16px; background: #FBF1E4; border-top: 1px solid #E9C88B; margin: 0 -16px -14px; margin-top: auto;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B5751A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3.5 2"></path></svg><span style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 12px; color: #8a5a14;">Verify fit before purchase</span></div>
           </div>
-        </div>
-        <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; position: relative;"><a href="PDP.dc.html" aria-label="View product" style="position: absolute; inset: 0; z-index: 1;"></a>
+        </a>
+        <a href="PDP.dc.html" aria-label="View product" style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; color: inherit;">
           <div style="display: block; height: 168px; background: url(&quot;/_blob/0a1f61db038a3618be2f3a68f9c4cb65&quot;) center / cover #f5f6f6 no-repeat; position: relative"></div>
           <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 7px; flex-grow: 1;">
             <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 14.5px; line-height: 1.25; color: #131518;">Battery Disconnect Switch, 12-48V</div>
@@ -384,8 +385,8 @@
             <div style="margin-top: 2px; font-family: 'Lato', sans-serif; font-weight: 800; font-size: 19px; color: #07263f;">$19.99</div>
             <div style="display: flex; align-items: center; gap: 7px; padding: 10px 16px; background: #EAF6EE; border-top: 1px solid #B9E0C3; margin: 0 -16px -14px; margin-top: auto;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#145C3D" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 12px; color: #145C3D;">Fits your 2026 Winnebago View 24D</span></div>
           </div>
-        </div>
-        <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; position: relative;"><a href="PDP.dc.html" aria-label="View product" style="position: absolute; inset: 0; z-index: 1;"></a>
+        </a>
+        <a href="PDP.dc.html" aria-label="View product" style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; color: inherit;">
           <div style="display: block; height: 168px; background: url(&quot;/_blob/7316fbc1edb0993053e78410e7b342b1&quot;) center / contain no-repeat; position: relative"></div>
           <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 7px; flex-grow: 1;">
             <div style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 14.5px; line-height: 1.25; color: #131518;">100Ah 12V LiFePO4 Lithium Battery</div>
@@ -395,7 +396,7 @@
             <div style="margin-top: 2px; font-family: 'Lato', sans-serif; font-weight: 800; font-size: 19px; color: #07263f;">$599.00<span style="font-size: 13px; color: #8a8f94; text-decoration: line-through; margin-left: 6px;">$679.00</span></div>
             <div style="display: flex; align-items: center; gap: 7px; padding: 10px 16px; background: #EAF6EE; border-top: 1px solid #B9E0C3; margin: 0 -16px -14px; margin-top: auto;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#145C3D" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 12px; color: #145C3D;">Fits your 2026 Winnebago View 24D</span></div>
           </div>
-        </div>
+        </a>
       </div>
 
       <div style="display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 30px;">
@@ -409,10 +410,10 @@
   </div>
 
   <!-- Dealer + support strip -->
-  <div style="max-width: 1280px; margin: 0 auto; padding: 64px 40px 8px; font-family: Times; color: rgb(0, 0, 0)">
+  <div style="max-width: 1280px; margin: 0 auto; padding: 64px 40px 8px;">
     <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 26px;">
       <h2 style="margin: 0; font-family: 'United Sans', Arial, sans-serif; font-weight: 800; font-size: 30px; color: #07263f;">Shop by category</h2>
-      <a href="Category.dc.html" style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #cd0e2d;">View all parts ›</a>
+      <a href="Category.dc.html" style="font-family: 'United Sans', Arial, sans-serif !important; font-weight: 900; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #cd0e2d !important; text-decoration: none !important;"><span style="font-family: 'United Sans', Arial, sans-serif !important; font-weight: 900; color: #cd0e2d !important;">View all parts &rsaquo;</span></a>
     </div>
     <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;">
       <a href="Category.dc.html" style="background: #fff; border: 1px solid #e4e5e6; border-radius: 12px; overflow: hidden; color: #34393e; display: flex; flex-direction: column;"><span style="height: 132px; background: url(&quot;/_blob/4c0f8e8cac16325226b7fa0a3221af62&quot;) center / cover no-repeat"></span><div style="padding: 18px 20px;"><div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 700; font-size: 17px;">Appliances &amp; HVAC</div><div style="font-size: 14px; color: #545454; margin-top: 4px;">Fridges, furnaces, A/C</div></div></a>
@@ -431,7 +432,7 @@
     <div style="background: #fff; border: 1px solid #e4e5e6; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 16px;">
       <div style="display: flex; align-items: center; gap: 12px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#131518" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg><span style="font-family: 'United Sans', Arial, sans-serif; font-weight: 800; font-size: 22px; color: #131518;">Questions about a part?</span></div>
       <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #545454; max-width: 460px;">Our support assistant answers product, shipping, and returns questions using approved Winnebago content, and hands you to a specialist whenever you need one.</p>
-      <a href="#" style="align-self: flex-start; margin-top: 8px; font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 13px; letter-spacing: 1.2px; text-transform: uppercase; color: #131518; border: 2px solid #131518; border-radius: 999px; padding: 12px 20px;">Ask a question</a>
+      <a onClick="{{openAssistant}}" style="align-self: flex-start; margin-top: 8px; font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 13px; letter-spacing: 1.2px; text-transform: uppercase; color: #131518; border: 2px solid #131518; border-radius: 999px; padding: 12px 20px; cursor: pointer;">Ask a question</a>
     </div>
   </div>
 
@@ -773,7 +774,7 @@
             <div onClick="{{askAssistantFit}}" style="border: 1px solid #d5d7d9; border-radius: 999px; padding: 9px 14px; font-family: Arial, sans-serif; font-weight: 700; font-size: 12.5px; color: #23262a; cursor: pointer;">Will a part fit my RV?</div>
             <div onClick="{{askAssistantShipping}}" style="border: 1px solid #d5d7d9; border-radius: 999px; padding: 9px 14px; font-family: Arial, sans-serif; font-weight: 700; font-size: 12.5px; color: #23262a; cursor: pointer;">How fast does it ship?</div>
             <div onClick="{{askAssistantReturns}}" style="border: 1px solid #d5d7d9; border-radius: 999px; padding: 9px 14px; font-family: Arial, sans-serif; font-weight: 700; font-size: 12.5px; color: #23262a; cursor: pointer;">What's your return policy?</div>
-            <div style="border: 1px solid #d5d7d9; border-radius: 999px; padding: 9px 14px; font-family: Arial, sans-serif; font-weight: 700; font-size: 12.5px; color: #23262a; cursor: pointer;">Do you ship to Canada?</div>
+            <div data-decorative="true" style="border: 1px solid #d5d7d9; border-radius: 999px; padding: 9px 14px; font-family: Arial, sans-serif; font-weight: 700; font-size: 12.5px; color: #23262a; cursor: pointer;">Do you ship to Canada?</div>
           </div>
         </sc-if>
 
