@@ -292,6 +292,7 @@
       <div style="display: flex; align-items: center; justify-content: space-between; padding: 20px 22px; border-bottom: 3px solid #07263f; flex-shrink: 0;">
         <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 19px; letter-spacing: 0.3px; color: #131518; text-transform: uppercase;">
           <sc-if value="{{isEntry}}" hint-placeholder-val="{{true}}"><sc-if value="{{hasVehicle}}" hint-placeholder-val="{{true}}">Change Your RV</sc-if><sc-if value="{{hasNoVehicle}}" hint-placeholder-val="{{false}}">Add Your RV</sc-if></sc-if>
+          <sc-if value="{{isRestart}}" hint-placeholder-val="{{false}}">Add Your RV</sc-if>
           <sc-if value="{{isNotEntry}}" hint-placeholder-val="{{false}}">Change Your RV</sc-if>
         </div>
         <a onClick="{{closePanel}}" aria-label="Close" style="width: 34px; height: 34px; border-radius: 999px; border: 1px solid #d5d7d9; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0;">
@@ -363,6 +364,30 @@
               </div>
             </div>
           </sc-if>
+        </sc-if>
+
+        <!-- RESTART: back to the very beginning of the add-vehicle flow (used by "Start over") -->
+        <sc-if value="{{isRestart}}" hint-placeholder-val="{{false}}">
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <div onClick="{{chooseVin}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 15px; display: flex; align-items: center; gap: 14px; cursor: pointer;">
+                <span style="width: 34px; height: 34px; border-radius: 8px; background: #f1f2f2; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#07263f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="6" y1="15" x2="12" y2="15"></line></svg>
+                </span>
+                <div>
+                  <div style="font-family: Arial, sans-serif; font-weight: 800; font-size: 15px; color: #23262a;">VIN</div>
+                  <div style="font-family: Arial, sans-serif; font-size: 13px; color: #8a8f94; margin-top: 2px;">From the Certification Label near the driver's door</div>
+                </div>
+              </div>
+              <div onClick="{{startModelPath}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 15px; display: flex; align-items: center; gap: 14px; cursor: pointer;">
+                <span style="width: 34px; height: 34px; border-radius: 8px; background: #f1f2f2; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#07263f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5a2 2 0 0 1 1.9-1.3h8.2A2 2 0 0 1 17 8l2 5"></path><path d="M2 13h20v4H2z"></path><circle cx="7" cy="18" r="1.5"></circle><circle cx="17" cy="18" r="1.5"></circle></svg>
+                </span>
+                <div>
+                  <div style="font-family: Arial, sans-serif; font-weight: 800; font-size: 15px; color: #23262a;">Model, year and floorplan</div>
+                  <div style="font-family: Arial, sans-serif; font-size: 13px; color: #8a8f94; margin-top: 2px;">If your paperwork isn't handy</div>
+                </div>
+              </div>
+            </div>
         </sc-if>
 
         <!-- VIN chat step -->
@@ -762,7 +787,8 @@ class Component extends DCLogic {
       hasNoVehicle: !hasVehicle,
       savedVehicleLabel: '2026 Winnebago View 24D',
       isEntry: quizStep === 'entry',
-      isNotEntry: quizStep !== 'entry',
+      isRestart: quizStep === 'restart',
+      isNotEntry: quizStep !== 'entry' && quizStep !== 'restart',
       isVin: quizStep === 'vin',
       isType: quizStep === 'type',
       isModel: quizStep === 'model',
@@ -816,7 +842,7 @@ class Component extends DCLogic {
       confirmMatch: () => this.setState({ quizStep: 'categories', hasVehicle: true }),
       notMyRv: () => this.setState({ quizStep: 'type' }),
       pickCategory: () => this.setState({ panelOpen: false, hasVehicle: true }),
-      startOver: () => this.setState({ quizStep: 'entry' })
+      startOver: () => this.setState({ quizStep: 'restart' })
     };
   }
 }

@@ -193,7 +193,7 @@
         </sc-if>
         <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
 
-          <button onClick="{{openPanel}}" style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #131518; background: #fff; border: 2px solid #131518; border-radius: 999px; padding: 10px 16px; cursor: pointer; white-space: nowrap;">MANAGE VEHICLES</button>
+          <button onClick="{{openManage}}" style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #131518; background: #fff; border: 2px solid #131518; border-radius: 999px; padding: 10px 16px; cursor: pointer; white-space: nowrap;">MANAGE VEHICLES</button>
         </div>
       </div>
     </div>
@@ -318,7 +318,8 @@
       <!-- Header -->
       <div style="display: flex; align-items: center; justify-content: space-between; padding: 20px 22px; border-bottom: 3px solid #07263f; flex-shrink: 0;">
         <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 19px; letter-spacing: 0.3px; color: #131518; text-transform: uppercase;">
-          <sc-if value="{{isEntry}}" hint-placeholder-val="{{true}}"><sc-if value="{{hasVehicle}}" hint-placeholder-val="{{true}}">Change Your RV</sc-if><sc-if value="{{hasNoVehicle}}" hint-placeholder-val="{{false}}">Add Your RV</sc-if></sc-if>
+          <sc-if value="{{isEntry}}" hint-placeholder-val="{{true}}">Add Your RV</sc-if>
+          <sc-if value="{{isManage}}" hint-placeholder-val="{{false}}">Change Your RV</sc-if>
           <sc-if value="{{isNotEntry}}" hint-placeholder-val="{{false}}">Change Your RV</sc-if>
         </div>
         <a onClick="{{closePanel}}" aria-label="Close" style="width: 34px; height: 34px; border-radius: 999px; border: 1px solid #d5d7d9; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0;">
@@ -329,9 +330,32 @@
       <!-- Body -->
       <div style="flex-grow: 1; overflow-y: auto; padding: 22px;">
 
-        <!-- ENTRY: saved vehicles list, or how would you like to identify your RV -->
+        <!-- ENTRY: how would you like to identify your RV (always the start of the add-vehicle flow) -->
         <sc-if value="{{isEntry}}" hint-placeholder-val="{{true}}">
-          <sc-if value="{{hasVehicle}}" hint-placeholder-val="{{true}}">
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <div onClick="{{chooseVin}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 15px; display: flex; align-items: center; gap: 14px; cursor: pointer;">
+                <span style="width: 34px; height: 34px; border-radius: 8px; background: #f1f2f2; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#07263f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="6" y1="15" x2="12" y2="15"></line></svg>
+                </span>
+                <div>
+                  <div style="font-family: Arial, sans-serif; font-weight: 800; font-size: 15px; color: #23262a;">VIN</div>
+                  <div style="font-family: Arial, sans-serif; font-size: 13px; color: #8a8f94; margin-top: 2px;">From the Certification Label near the driver's door</div>
+                </div>
+              </div>
+              <div onClick="{{startModelPath}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 15px; display: flex; align-items: center; gap: 14px; cursor: pointer;">
+                <span style="width: 34px; height: 34px; border-radius: 8px; background: #f1f2f2; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#07263f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5a2 2 0 0 1 1.9-1.3h8.2A2 2 0 0 1 17 8l2 5"></path><path d="M2 13h20v4H2z"></path><circle cx="7" cy="18" r="1.5"></circle><circle cx="17" cy="18" r="1.5"></circle></svg>
+                </span>
+                <div>
+                  <div style="font-family: Arial, sans-serif; font-weight: 800; font-size: 15px; color: #23262a;">Model, year and floorplan</div>
+                  <div style="font-family: Arial, sans-serif; font-size: 13px; color: #8a8f94; margin-top: 2px;">If your paperwork isn't handy</div>
+                </div>
+              </div>
+            </div>
+        </sc-if>
+
+        <!-- MANAGE: saved vehicles list -->
+        <sc-if value="{{isManage}}" hint-placeholder-val="{{false}}">
             <div style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: #8a8f94; margin-bottom: 12px;">My Motorhomes</div>
             <div style="display: flex; flex-direction: column; gap: 12px;">
               <div onClick="{{switchToView24d}}" style="background: #fff; border: 2px solid {{view24dBorderColor}}; border-radius: 14px; padding: 16px; display: flex; align-items: center; gap: 14px; cursor: pointer; transition: border-color 0.25s ease;">
@@ -368,32 +392,9 @@
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8a8f94" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6"></path><path d="M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
                 </a>
               </div>
-              <button onClick="{{openPanel}}" style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 14px; letter-spacing: 0.6px; text-transform: uppercase; color: #131518; background: transparent; border: none; text-decoration: underline; text-underline-offset: 3px; padding: 10px; cursor: pointer;" type="button">MANAGE VEHICLES</button>
-              <button onClick="{{startModelPath}}" style="width: 100%; margin-top: 4px; font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 14px; letter-spacing: 1.2px; text-transform: uppercase; color: #fff; background: #000; border: 1px solid #3a3f45; border-radius: 999px; padding: 14px; cursor: pointer;" type="button">ADD NEW VEHICLE</button>
+              <button onClick="{{openManage}}" style="font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 14px; letter-spacing: 0.6px; text-transform: uppercase; color: #131518; background: transparent; border: none; text-decoration: underline; text-underline-offset: 3px; padding: 10px; cursor: pointer;" type="button">MANAGE VEHICLES</button>
+              <button onClick="{{openPanel}}" style="width: 100%; margin-top: 4px; font-family: 'United Sans', Arial, sans-serif; font-weight: 900; font-size: 14px; letter-spacing: 1.2px; text-transform: uppercase; color: #fff; background: #000; border: 1px solid #3a3f45; border-radius: 999px; padding: 14px; cursor: pointer;" type="button">ADD NEW VEHICLE</button>
             </div>
-          </sc-if>
-          <sc-if value="{{hasNoVehicle}}" hint-placeholder-val="{{false}}">
-            <div style="display: flex; flex-direction: column; gap: 14px;">
-              <div onClick="{{chooseVin}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 15px; display: flex; align-items: center; gap: 14px; cursor: pointer;">
-                <span style="width: 34px; height: 34px; border-radius: 8px; background: #f1f2f2; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#07263f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="6" y1="15" x2="12" y2="15"></line></svg>
-                </span>
-                <div>
-                  <div style="font-family: Arial, sans-serif; font-weight: 800; font-size: 15px; color: #23262a;">VIN</div>
-                  <div style="font-family: Arial, sans-serif; font-size: 13px; color: #8a8f94; margin-top: 2px;">From the Certification Label near the driver's door</div>
-                </div>
-              </div>
-              <div onClick="{{startModelPath}}" style="border: 1px solid #d5d7d9; border-radius: 10px; padding: 15px; display: flex; align-items: center; gap: 14px; cursor: pointer;">
-                <span style="width: 34px; height: 34px; border-radius: 8px; background: #f1f2f2; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#07263f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5a2 2 0 0 1 1.9-1.3h8.2A2 2 0 0 1 17 8l2 5"></path><path d="M2 13h20v4H2z"></path><circle cx="7" cy="18" r="1.5"></circle><circle cx="17" cy="18" r="1.5"></circle></svg>
-                </span>
-                <div>
-                  <div style="font-family: Arial, sans-serif; font-weight: 800; font-size: 15px; color: #23262a;">Model, year and floorplan</div>
-                  <div style="font-family: Arial, sans-serif; font-size: 13px; color: #8a8f94; margin-top: 2px;">If your paperwork isn't handy</div>
-                </div>
-              </div>
-            </div>
-          </sc-if>
         </sc-if>
 
         <!-- VIN chat step -->
@@ -701,7 +702,8 @@ class Component extends DCLogic {
       goToFitment: () => { window.location.href = 'Fitment.dc.html'; },
       stopClick: (e) => { if (e && e.stopPropagation) e.stopPropagation(); },
       isEntry: quizStep === 'entry',
-      isNotEntry: quizStep !== 'entry',
+      isManage: quizStep === 'manage',
+      isNotEntry: quizStep !== 'entry' && quizStep !== 'manage',
       isVin: quizStep === 'vin',
       isType: quizStep === 'type',
       isModel: quizStep === 'model',
@@ -718,6 +720,7 @@ class Component extends DCLogic {
       toggleAccount: () => this.setState({ accountOpen: !(this.state.accountOpen ?? false) }),
       closeAccount: () => this.setState({ accountOpen: false }),
       openPanel: () => this.setState({ panelOpen: true, quizStep: 'entry' }),
+      openManage: () => this.setState({ panelOpen: true, quizStep: 'manage' }),
       closePanel: () => this.setState({ panelOpen: false }),
       confirmSaved: () => this.setState({ panelOpen: false }),
       chooseVin: () => this.setState({ quizStep: 'vin' }),
