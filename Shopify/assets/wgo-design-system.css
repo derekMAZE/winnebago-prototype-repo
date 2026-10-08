@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+/* ==========================================================================
+   Winnebago Parts Direct: design system layer (pilot)
+   Source: winnebago.com/parts, extracted 2026-10-05
+   Fonts: Barlow Condensed / Barlow are stand-ins for United Sans and
+   Berthold Grotesk (licensed Winnebago fonts, decision pending).
+   Loaded last in layout/theme.liquid so it overrides theme variables.
+   ========================================================================== */
+
+:root {
+  /* Brand tokens */
+  --wgo-red: #CD0E2D;
+  --wgo-red-rgb: 205 14 45;
+  --wgo-red-dark: #A80B25;
+  --wgo-charcoal: #34393E;
+  --wgo-charcoal-rgb: 52 57 62;
+  --wgo-ink: #222222;
+  --wgo-ink-rgb: 34 34 34;
+  --wgo-navy: #07263F;
+  --wgo-navy-rgb: 7 38 63;
+  --wgo-grey-700: #545454;
+  --wgo-grey-200: #D3D3D3;
+  --wgo-grey-100: #F1F2F2;
+  --wgo-white: #FFFFFF;
+
+  /* Typography */
+  --font-body--family: 'Barlow', Arial, Helvetica, sans-serif;
+  --font-subheading--family: 'Barlow', Arial, Helvetica, sans-serif;
+  --font-subheading--weight: 600;
+  --font-heading--family: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif;
+  --font-heading--weight: 800;
+  --font-accent--family: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif;
+  --font-accent--weight: 700;
+
+  /* Page colors */
+  --color-background: #FFFFFF;
+  --color-background-rgb: 255 255 255;
+  --color-foreground: #34393E;
+  --color-foreground-rgb: 52 57 62;
+  --color-border: #D3D3D3;
+  --color-border-rgb: 211 211 211;
+
+  /* Semantic (proposed, Winnebago has no published set) */
+  --color-error: #B00020;
+  --color-success: #2E7D4F;
+
+  /* Primary button: Winnebago red pill */
+  --color-primary-button-background: rgb(205 14 45);
+  --color-primary-button-text: rgb(255 255 255);
+  --color-primary-button-border: rgb(205 14 45);
+  --color-primary-button-focus-outline: rgb(205 14 45);
+  --color-primary-button-hover-background: #A80B25;
+  --color-primary-button-hover-text: rgb(255 255 255);
+  --color-primary-button-hover-border: #A80B25;
+
+  /* Secondary button: ink outline pill */
+  --color-secondary-button-background: rgb(255 255 255 / 0);
+  --color-secondary-button-text: rgb(34 34 34);
+  --color-secondary-button-border: rgb(34 34 34);
+  --color-secondary-button-hover-background: #222222;
+  --color-secondary-button-hover-text: rgb(255 255 255);
+  --color-secondary-button-hover-border: #222222;
+
+  /* Inputs and variants */
+  --color-input-background: rgb(255 255 255);
+  --color-input-text: rgb(52 57 62);
+  --color-input-text-rgb: 52 57 62;
+  --color-input-border: rgb(84 84 84);
+  --color-selected-variant-background: rgb(34 34 34);
+  --color-selected-variant-border: rgb(34 34 34);
+  --color-selected-variant-text: rgb(255 255 255);
+
+  /* Shape */
+  --style-border-radius-buttons-primary: 48px;
+  --style-border-radius-buttons-secondary: 48px;
+  --style-border-width-secondary: 2px;
+  --style-border-radius-inputs: 4px;
+  --style-border-radius-pills: 48px;
+  --style-border-radius-popover: 8px;
+  --variant-picker-button-radius: 48px;
+  --checkbox-border-radius: 3px;
+  --minimum-touch-target: 44px;
+
+  /* Buttons */
+  --button-text-case-primary: uppercase;
+  --button-text-case-secondary: uppercase;
+  --button-font-family-primary: var(--font-heading--family);
+  --button-font-family-secondary: var(--font-heading--family);
+  --button-padding-inline: 28px;
+  --button-padding-block: 14px;
+}
+
+body {
+  font-family: var(--font-body--family);
+  color: var(--color-foreground);
+  background-color: var(--color-background);
+}
+
+/* Headings: heavy condensed, like United Sans Heavy */
+h1, h2, h3, .h1, .h2, .h3 {
+  font-family: var(--font-heading--family);
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+h4, .h4 {
+  font-family: var(--font-heading--family);
+  font-weight: 700;
+}
+
+/* Buttons */
+.button,
+.button-secondary,
+button.button,
+.shopify-payment-button__button--unbranded {
+  font-family: var(--font-heading--family);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Links: brand red on hover, keep body links readable */
+a:hover {
+  text-decoration-color: var(--wgo-red);
+}
+
+/* Prices: strong and legible for part shoppers */
+.price,
+product-price .price {
+  font-family: var(--font-heading--family);
+  font-weight: 700;
+  color: var(--wgo-ink);
+}
+
+/* Product description: tidy spec list on PDP */
+.product-details .rte ul,
+.rte ul {
+  padding-inline-start: 1.1em;
+}
+
+.rte li strong {
+  color: var(--wgo-ink);
+}
+
+/* Focus visibility (accessibility fix) */
+:focus-visible {
+  outline: 2px solid var(--wgo-red);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Opt-in section classes
+   -------------------------------------------------------------------------- */
+.wgo-scheme-ink {
+  --color-background: #222222;
+  --color-background-rgb: 34 34 34;
+  --color-foreground: #FFFFFF;
+  --color-foreground-rgb: 255 255 255;
+  --color-border: #545454;
+  --color-border-rgb: 84 84 84;
+  background-color: #222222;
+  color: #FFFFFF;
+}
+
+.wgo-scheme-light {
+  --color-background: #F1F2F2;
+  --color-background-rgb: 241 242 242;
+  background-color: #F1F2F2;
+}
+
+/* Footer: ink band like winnebago.com */
+footer .shopify-section {
+  --color-foreground: #FFFFFF;
+  --color-foreground-rgb: 255 255 255;
+  --color-border: #545454;
+  --color-border-rgb: 84 84 84;
+  --color-input-background: rgb(255 255 255);
+  --color-input-text: rgb(34 34 34);
+  --color-input-text-rgb: 34 34 34;
+  --color-input-border: rgb(255 255 255);
+  color: #FFFFFF;
+}
+
+footer .shopify-section a:hover {
+  color: #FFFFFF;
+  text-decoration: underline;
+  text-decoration-color: var(--wgo-red);
+}
